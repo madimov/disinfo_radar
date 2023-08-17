@@ -13,6 +13,7 @@ from datetime import timezone
 from EntityRecognizer import EntityRecognizer
 from SpanClusterer import SpanClusterer
 from DisinfoFactorScorer import DisinfoFactorScorer
+from Analyzer import Analyzer
 from Config import Config
 
 
@@ -59,10 +60,13 @@ class DisinfoPipeline:
         span_scores_data_objs = self.disinfoFactorScorer.get_all_disinfo_factor_scores(self.span_data_objs)
         self.df_span_scores = pd.DataFrame(span_scores_data_objs)
         current_timestamp = datetime.now(timezone.utc).strftime("%Y_%m_%d-%H_%M_%S")
-        self.df_span_scores.to_csv(f"df_span_scores_{current_timestamp}.csv", sep="|", index=False)
+        self.df_span_scores.to_csv(f"output/df_span_scores_{current_timestamp}.csv", sep="|", index=False)
+
+        if (Config.cfg['default']['filter_and_cluster_spans'] == False):
+            self.df_span_scores_final = self.df_span_scores # in case not filtering & grouping by span clusters
 
     def filter_and_cluster_spans(self):
-        print("cluster_spans()...")
+        print("filter_and_cluster_spans()...")
         self.spanClusterer = SpanClusterer()
         self.df_clusters_with_labels = self.spanClusterer.filter_and_cluster_spans(self.df_span_scores)
 
@@ -86,7 +90,11 @@ class DisinfoPipeline:
             list_span2cluster_labels_mapped.append(cluster_label)
             
         df_span_scores_filtered["cluster_label"] = list_span2cluster_labels_mapped
-        self.df_span_scores_filtered = df_span_scores_filtered
+        self.df_span_scores_final = df_span_scores_filtered
+
+    def analyze_disinfo_potential(self):
+        self.analyzer = Analyzer()
+        df_disinfo_analysis = self.analyzer.get_tech_disinfo_analysis(self.df_span_scores_final)
 
     def run(self):
         print("run()...")
@@ -95,6 +103,7 @@ class DisinfoPipeline:
         self.predict_disinfo_factor_scores()
         if (Config.cfg['default']['filter_and_cluster_spans']):
             self.filter_and_cluster_spans()
+        self.analyze_disinfo_potential()
 
 
 def main():
