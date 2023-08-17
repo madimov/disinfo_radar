@@ -1,0 +1,154 @@
+Alberto Romero
+Feb 3
+16 min read
+
+The New Version of GPT-3 Is Much, Much Better
+But theres still a lot of work to do in AI alignment and AI ethics
+
+Photo by Agsandrew on Shutterstock
+GPT-3 proved beyond doubt to be a master of language generation tasks. From writing poetry and songs to mimicking human-made essays, to coding. Not a few startups have built products on top of the model  and some have found impressive success. However, setting apart GPT-3's tendency to engage in toxic and biased behaviors and generate misinformation if prompted to do so, users would probably agree that GPT-3s limitations are mainly tied to prompt engineering.
+
+GPT-3 is a jack of all trades. Its good for a broad array of language tasks but it isnt great for any in particular. Prompt engineering is the easiest way to bypass this issue: users can improve GPT-3s abilities through conditioning. For instance, if I want it to write a story about the moon and the stars, I could input three full examples and the first sentence of a fourth. Then, the model will unmistakenly get that I want it to continue the fourth story.
+
+This method works but its quite laborious. Users that arent familiar with the models inner workings will have a hard time making it work adequately. GPT-3s optimal performance often remains unreachable despite the efforts.
+
+OpenAI has now solved this shortcoming. Theyve introduced a new version of the GPT family they named InstructGPT  they called it that way but after overwhelmingly positive feedback theyve decided to remove the instruct descriptor and set these models as the default in the API (they recommend using this version for all language tasks instead of the original GPT-3. In the API, the 175B InstructGPT model is named text-davinci-001).
+
+This version of GPT-3 (which Ill call InstructGPT in this article for the sake of clarity) is optimized to follow instructions, instead of predicting the most probable word. This change largely removes the necessity to write good prompts to extract all the power from the models. It not only makes them easier to use for most people  you dont need to learn (as much) prompt engineering anymore  but makes the models more reliable and functional. The quality of the completions isnt nearly as dependent on the prompt as for the original GPT-3 models, which prevents the model from making too many human-derived mistakes.
+
+We can define more precisely the differences between GPT-3 and InstructGPT using an instructions frame. From this perspective, we could say GPT-3 works well only when following indirect or implicit instructions. In the example of the moon and the stars, the four-story prompt makes GPT-3 understand my instruction indirectly. I never told GPT-3 what to do directly, only implicitly. In contrast, InstructGPT can follow explicit instructions of the form: Write a short story about the moon and the stars.
+
+Write a short story about the moon and the stars:
+
+Once upon a time, the moon and the stars lived together in the sky. They were the best of friends, and they loved spending their time together. The moon would light up the sky at night, and the stars would twinkle and shine. They were always happy and they never fought.
+
+But one day, the moon and the stars began to grow apart. The moon started to feel left out and the stars began to ignore her. The moon didnt understand what was happening, and she felt very lonely.
+
+One night, the moon decided to take a walk through the sky. She passed by all the other planets and stars, but they all just ignored her. The moon began to cry and she felt more alone than ever.
+
+Suddenly, the moon heard a voice. It was the sun. He had been watching the moon from a distance and he had seen how sad she was. The sun told the moon that he loved her and that he would always be there for her. The moon was so happy to hear this, and she felt much better.
+
+The moon and the sun went back to the sky and they were finally able to be happy again.
+
+I got the above story by inputting the prompt sentence Write a short story about the moon and the stars as-is in the playground. If you try that on GPT-3 the result is horrible:
+
+Write a short story about the moon and the stars: Does the moon like the stars? Does the moon like the stars? Does the moon like the stars? Does the moon like the stars? Does the moon like the stars? Does the moon like the stars? Does the moon like the stars? Does the moon like the stars? Does the moon like the stars?
+
+Explicit instruction, which is a straightforward way of communication for us, doesn't work for GPT-3.
+
+However, OpenAI didnt stop here. InstructGPT isnt just way better than GPT-3 at following instructions, its also better aligned with human intention. The AI alignment problem is a well-known problem in the field. It defines the difficulty of designing AI systems that understand our values, beliefs, and desires, and behave in a way that won't interfere with them  even if we make errors in how we define what we want.
+
+How to make AI models that learn in that direction is a largely unsolved problem. Sam Altman, OpenAIs CEO, says InstructGPT is the latest step forward in that direction and acknowledged its success in this tweet:
+
+
+However, not everyone agrees on the alignment part. Some people  including experts on the topic like Timnit Gebru and Mark Riedl  mentioned that it isnt an alignment paper, as Altman claims. They criticize that using human feedback for supervised training isnt true alignment. An ML researcher commented that the so-called AI control problem is so ill-defined that you could say anything is alignment. Ill explain why this is a valid criticism later.
+
+Setting that aside, the results are impressive in terms of performance, so lets see what InstructGPT is and what its capable of.
+
+Main features of the InstructGPT models
+From GPT-3 to InstructGPT
+To transform GPT-3 models into InstructGPT models OpenAI designed a three-step procedure. (When I refer to InstructGPT in plural Im referring to the 1.3B, 6B, and 175B models.)
+
+
+Three-step method to transform GPT-3 into InstructGPT  All figures are from the OpenAI paper
+The first step to specialize GPT-3 in a given task is fine-tuning the model. To do this, they defined a dataset comprising prompts and completions in the form of instruction-following data (demonstration dataset, 13K prompts). After training GPT-3 on this dataset, they got a new model they called SFT (supervised fine-tuning) that served as the baseline to compare the original GPT-3 and the finished InstructGPT. This model was already better than GPT-3 at following instructions, but not necessarily aligned with human preference.
+
+To align the model with human intention they applied a reinforcement learning paradigm they developed together with DeepMind called RLHF (reinforcement learning with human feedback) in the following two steps.
+
+The second step is building a reward model (RM). They fine-tuned a GPT-3 model using a comparison dataset of 33K prompts (not the same one they used to train SFT) to transform it into the RM. The comparison dataset is composed of pairs of prompts with several completions per prompt (49 each), ranked from best to worst in preference by the human labeler. The idea was to make the RM learn which completions humans prefer when given a prompt.
+
+In the last step, they took an SFT model (already fine-tuned with the demonstration dataset) and further fine-tuned it using reinforcement learning. The final model, which Im calling InstructGPT throughout this article, is also called PPO-ptx in the paper (ptx means pre-training mix because the last fine-tuning step uses also data from the GPT-3 pre-training dataset) because it uses a proximal policy optimization algorithm (PPO). The PPO algorithm uses the RM as the reward function (thats how they train InstructGPT from human feedback).
+
+The fine-tuning process of the last step is as follows: When InstructGPT is shown a prompt it outputs a completion. The result is sent to the RM which calculates the reward. The reward is given to the InstructGPT model to update the policy and get closer to what humans would want to see as output.
+
+To summarize, GPT-3 is first fine-tuned to follow instructions and then further fine-tuned from human feedback to align with human preference. Thats InstructGPT in a nutshell.
+
+A change in objective
+But why did OpenAI modify GPT-3 into a more aligned model? The main reason is that predicting the next token isnt as useful and reliable as follow the users instructions helpfully and safely. OpenAIs research team realized GPT-3 had an ill-defined objective and wanted to redirect its efforts to create a model that was more truthful and harmless.
+
+However, its not easy to mathematically define the new objective. GPT-3s objective was straightforward: get the most probable word given the data youve been fed is a matter of applying well-known ML and statistics techniques. However, how can we define helpful and harmless for humans? OpenAI decided to create an objective that could comprise explicit intentions (following instructions) but also implicit intentions, as defined by Amanda Askell and others: They wanted the model to be helpful, honest, and harmless (more on this in the results section).
+
+Yet, when we try to pinpoint the new definition, we encounter new difficulties. What is honesty in the context of language models? Honesty can be defined as the degree to which expressed behavior correlates with internal beliefs, which are opaque in the black box that are language models. Even defining whats harmful can be intricate sometimes. Ultimately, it depends on the specific real-world application of the model. Its not the same to deploy a generic language generation model than a toxicity detection model.
+
+To overcome these ambiguities they instructed labelers to prioritize helpfulness to the user in training  even if the users explicitly wanted a potentially harmful response  and to prioritize truthfulness and harmlessness in evaluation, which is what they wanted to optimize in production.
+
+Diversity of alignment
+Following on the criticism of AI ethics experts of using the word alignment, I have to clarify that OpenAI didnt aim to align the models with everyone. One user mentioned this on Twitter: The whole problem  is when people dont agree  esp when a marginalized minority dont agree with the majority.
+
+The InstructGPT models are closer than GPT-3 at aligning with humans in the general sense, but theres huge diversity within the term humans that isnt reflected in InstructGPTs behavior. The model is aligned with the labelers (contracted from Upwork and Scale AI to classify the outputs) and OpenAI researchers preferences  and therefore the organization as a whole, but what about the rest of the world? The company acknowledged this issue in the discussion section: We are not claiming that researchers, the labelers we hired, or our API customers are the right source of preferences. Yet, what Altman said in his tweet was that they had released the best alignment paper in the world so far. It may be true, but its misleading nevertheless.
+
+To reduce the bias in the alignment, OpenAI defined a set of criteria for the selection of labelers. The key criterion was that labelers had to be sensitive to the preferences of different demographic groups. (They couldnt hire them based on demographic criteria for legal reasons.)
+
+Its highly improbable that this group of labelers (mostly English-speaking from the United States or Southeast Asia) reflects the diversity of our society. And, more importantly, using the average as a criterion to define alignment is exactly the contrary of true alignment  which would imply that the model understands individual and group preferences precisely by how they differ from those of other people and groups. Average alignment could blur minorities preferences as the majority would have more weight in the final decision of the model.
+
+Creating a model that is aligned with a sub-group of people is a huge step towards safer and more reliable models, thats undeniable. But when working on AI alignment, we shouldnt forget that humans are extremely diverse. How can we make sure that an AI model is aligned to some non-harmful degree to everyone it makes contact with? The only sensible starting point is to have, at least, one labeler representing each group, or a model tailored for each group, as OpenAI suggests.
+
+But then other questions arise: How do we define groups? Based on race, gender, age, country, religion? How do we make sure that specific models suited for a particular group dont end up affecting the broader society? These are questions without answer and, in my opinion, should be thought of thoroughly before deploying biased models in the name of alignment.
+
+Results and comparison with GPT-3
+Results are divided into three sections. First, the models are compared in terms of performance in the prompts collected from the API. Then, theyre tested on public NLP datasets. Finally, researchers give qualitative considerations that cant be put mathematically.
+
+Evaluation on API prompt distribution
+Labelers significantly prefer InstructGPT outputs over outputs from GPT-3. This is the principal result performance-wise and the proof that InstructGPT deserves to be the default model in the API and the playground (even more so after the positive feedback from customers).
+
+Figure 1 shows that labelers prefer outputs from the variants of the InstructGPT models (PPO-ptx and PPO) above the other models (GPT-3, GPT-3 prompted, and the SFT baseline). This holds across sizes: Surprisingly, the 1.3B InstructGPT model is better than the 175B GPT-3 model.
+
+At 175B parameters (the davinci models, which are the most widely used), the InstrucGPT model is preferred over GPT-3 85% of the time and over GPT-3 prompted 71% of the time. This means that almost 3 out of 4 times, labelers prefer InstructGPT over a GPT-3 that has been conditioned to do well on the task at hand. Not even prompt engineering is enough to beat InstructGPT.
+
+
+Figure 1: Human preference evaluation on the API prompt distribution. GPT and GPT (prompted) are the original GPT-3 models. SFT is GPT-3 fine-tuned on the demonstration dataset (serves as the baseline for comparison). PPO-ptx is the InstructGPT model (the PPO model is similar to the PPO-ptx, but was fine-tuned only with the new data and worsens performance in public NLP datasets).
+All the models were tested against prompts tailored for InstructGPT and GPT-3 to make a fair comparison. In both cases, completions from InstructGPT are generally preferred by the labelers, as you can see in figure 2 below. Also, the InstructGPT models generalize to the preferences of labelers that werent included in the training set (although it doesnt necessarily mean they will generalize adequately to other groups of people or in prompts where people tend to disagree).
+
+
+Figure 2: Comparison of GPT-3 and InstructGPT against SFT 175B both on prompts submitted to the GPT-3 and InstructGPT models on the API (to make a fair comparison), as evaluated by training and held-out labelers.
+InstructGPT models are better than GPT-3 models in following instructions and specifically in following explicit constraints (e.g. Write the answer in 2 sentences or less.), and hallucinate less (dont make up info as often).
+
+
+Figure 3: Metadata results on the API distribution.
+Evaluation on public NLP datasets: Honesty, toxicity, bias, and more
+To evaluate how honest the models are, they decided to test them against TruthfulQA, a benchmark that measures how models mimic human falsehoods. They discovered that InstructGPT gives truthful answers twice as much as GPT-3 (figure 4). They also tested the models in closed-domain QA and summarization tasks and found that InstructGPT hallucinates half the time as GPT-3 (21% vs 41%). These are default results: the models dont have to be instructed to behave truthfully, which removes the burden from the user to make sure the models are adequately prompted.
+
+
+Figure 4: Evaluation on TruthfulQA. In gray truthfulness. In color truthfulness and informativeness. In general, the PPO model, which is the most aligned with human preference, gets the best results.
+To evaluate model toxicity, they tested the models against the RealToxicityPrompts dataset (figures 5 and 6). They found a very interesting result: InstructGPT is less toxic when instructed to be respectful, equally toxic when not instructed, and much more toxic when instructed to be biased, than GPT-3. This means that, on the one hand, those who want to avoid toxicity will manage to do so better using InstructGPT, but, on the other hand, those with bad intentions will find it easier to cause harm using InstructGPT.
+
+The new model isnt inherently safer than GPT-3, but more capable of following the intention of the user  which isnt always for the betterment of people. Augmenting the capacity of the models is a step forward performance-wise, but not necessarily safety-wise. From the paper: Making language models better at following user intentions also makes them easier to misuse. It may be easier to use these models to generate convincing misinformation, or hateful or abusive content.
+
+
+Figure 5: Evaluation on the RealToxicityPrompts dataset. InstructGPT is less toxic when prompted to be respectful, but equally toxic when not prompted, than GPT-3.
+
+Figure 6: Evaluation on the RealToxicityPrompts dataset. InstructGPT is less toxic when instructed to be respectful but much more toxic when instructed to be biased, than GPT-3.
+They also evaluated model bias using the Winogender and CrowS-Pairs datasets (figure 7). They conclude our models are not less biased than GPT-3, but the reality, as its clear from the graphs, is that InstructGPT is generally more biased than GPT-3 (and not just not less). They clarify afterward that it appears that the instructed models are more certain of their outputs regardless of whether or not their outputs exhibit stereotypical behavior. This reinforces the idea that the InstructGPT models are more powerful than their GPT-3 counterparts, and, if anything, that makes them less safe and more potentially harmful.
+
+
+Figure 7: Evaluation on Winogender and CrowS-Pairs. InstructGPT models are generally more biased than GPT-3, excepting the PPO-ptx model in the no-prompt condition (more entropy means less biased).
+These results also hint at the above reflection that aligning InstructGPT to a highly specific group of people doesnt improve its behavior towards minorities and discriminated groups of people. I guess that if labelers were significantly more diverse (in terms of gender, race, nationality, culture, etc.), these results would be very different.
+
+Still, even if OpenAI tried to realign the models to meet this criterion, I wouldnt be surprised if the models didnt improve that much. The reason is that the pre-training data for GPT-3 is full of bias. Using human feedback to fine-tune the models and reinforce some behaviors through partial alignment can only get them so far. The best solution is to have a highly diverse team to strongly curate the data the models are fed in the first place.
+
+A final quantitative result is that researchers found that models fine-tuned to optimize alignment with human labelers suffered from an alignment tax in terms of performance. This means that InstructGPT performs worse in some public NLP datasets than GPT-3. To compensate for that decrease in performance, they redefined the fine-tuning procedure and created the model PPO-ptx (as its called on the figures). This model is fine-tuned with reinforcement learning combining the gradients from the reward model with updates from the original data used to pre-train GPT-3. This makes PPO-ptx (InstructGPT) more capable on NLP benchmarks but less aligned than its brother, PPO.
+
+Qualitative results
+InstructGPT models can generalize to follow instructions beyond the RLHF fine-tuning distribution. Particularly, they can follow instructions in non-English prompts and code. From the paper: It suggests that, in some cases, alignment methods could generalize to producing the desired behavior on inputs that humans did not directly supervise. However, whether InstructGPT does this reliably is unknown because researchers didnt track this behavior quantitatively.
+
+Finally, InstructGPT still makes mistakes. It can fail to follow instructions, can hallucinate, can produce toxic and biased outputs, can give long answers to short questions The same problems that were present with GPT-3 models are still present for the InstructGPT version (performance-related problems are less common, but safety-, toxicity-, and bias-related problems could be more common).
+
+Heres an example of InstructGPT not realizing the question is absurd:
+
+
+Conclusions
+The good
+InstructGPT is better performance-wise than GPT-3. Not necessarily in terms of NLP benchmarks (in which GPT-3 often surpasses InstructGPT), but its better adapted to human preference, which ultimately is a better predictor of real-world performance. The reason is InstructGPT is more aligned with human intention through a reinforcement learning paradigm that makes it learn from human feedback.
+
+Because InstructGPT can follow explicit instructions, theres no need to communicate with it using implicit or indirect prompt techniques. You can simply ask the model what you want from it and itll know what to write. This removes the burden from users that may not be familiar with the way generative language models work. This is an indirect way of democratizing these models (although other barriers like the high cost and not being available in some countries remain).
+
+InstructGPT is better than GPT-3 also at following implicit instructions, which makes it more truthful, helpful, and harmless  as long as the user wants to. Its also less toxic than GPT-3 when prompted to be respectful. These features make it more functional for well-intentioned people, which will be able to extract the maximum potential from the model worrying less about possible uncontrollable mistakes.
+
+The paper is a step forward in solving the problem of AI alignment. This isnt definitive by any means  some people even question whether it is a paper on alignment  but in my opinion, theyve shown that fine-tuning with human feedback brings these models closer to people. We eventually may be able to communicate naturally with them and they will adapt to our preferences.
+
+The bad
+InstructGPT being better than GPT-3 at following instructions has a dark side. A malicious user could take advantage of that to make the model less truthful and helpful, and more harmful. Given that the model is also more powerful than GPT-3, the damage could be higher.
+
+For the same reason, InstructGPT can be more toxic if prompted to be biased  the increment in toxicity is higher when prompted to be biased than it is the decrement when prompted to be respectful. The models are also generally more biased than GPT-3. One possible explanation is that InstructGPT is more certain of its answers regardless of whether it engages in stereotypes, as the authors propose. Another reason could be that aligning the model with a specific group of people misaligns it with other groups and thats reflected on benchmark evaluation.
+
+Finally, some people have criticized OpenAI for defining the study as an alignment paper, arguing that human-in-a-loop fine-tuning isnt alignment. Another, in my opinion, more strong criticism is that aligning the model with hired labelers, OpenAI researchers, and OpenAI users, isnt real alignment (although its a genuinely important first step). Training models to manage situations in which groups differ in their preferences (instead of finding common ground averages) is whats truly challenging  especially in cases in which discriminated minorities, which are always targeted by these models, are at risk.

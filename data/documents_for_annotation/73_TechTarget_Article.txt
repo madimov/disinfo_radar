@@ -1,0 +1,52 @@
+DEFINITION
+GPT-3
+
+Ronald Schmelzer
+By
+Ronald Schmelzer, Cognilytica
+What is GPT-3?
+GPT-3, or the third generation Generative Pre-trained Transformer, is a neural network machine learning model trained using internet data to generate any type of text. Developed by OpenAI, it requires a small amount of input text to generate large volumes of relevant and sophisticated machine-generated text.
+
+GPT-3's deep learning neural network is a model with over 175 billion machine learning parameters. To put things into scale, the largest trained language model before GPT-3 was Microsoft's Turing NLG model, which had 10 billion parameters. As of early 2021, GPT-3 is the largest neural network ever produced. As a result, GPT-3 is better than any prior model for producing text that is convincing enough to seem like a human could have written it.
+
+
+What can GPT-3 do?
+Natural language processing includes as one of its major components natural language generation, which focuses on generating human language natural text. However, generating human understandable content is a challenge for machines that don't really know the complexities and nuances of language. Using text on the internet, GPT-3 is trained to generate realistic human text.
+
+GPT-3 has been used to create articles, poetry, stories, news reports and dialogue using just a small amount of input text that can be used to produce large amounts of quality copy.
+
+GPT-3 is also being used for automated conversational tasks, responding to any text that a person types into the computer with a new piece of text appropriate to the context. GPT-3 can create anything with a text structure, and not just human language text. It can also automatically generate text summarizations and even programming code.
+
+GPT-3 examples
+As a result of its powerful text generation capabilities, GPT-3 can be used in a wide range of ways. GPT-3 is used to generate creative writing such as blog posts, advertising copy, and even poetry that mimics the style of Shakespeare, Edgar Allen Poe and other famous authors.
+
+Using only a few snippets of example code text, GPT-3 can create workable code that can be run without error, as programming code is just a form of text. GPT-3 has also been used to powerful effect to mock up websites. Using just a bit of suggested text, one developer has combined the UI prototyping tool Figma with GPT-3 to create websites just by describing them in a sentence or two. GPT-3 has even been used to clone websites by providing a URL as suggested text. Developers are using GPT-3 in several ways, from generating code snippets, regular expressions, plots and charts from text descriptions, Excel functions and other development applications.
+
+GPT-3 is also being used in the gaming world to create realistic chat dialog, quizzes, images and other graphics based on text suggestions. GPT-3 can generate memes, recipes and comic strips, as well.
+
+How does GPT-3 work?
+GPT-3 is a language prediction model. This means that it has a neural network machine learning model that can take input text as an input and transform it into what it predicts the most useful result will be. This is accomplished by training the system on the vast body of internet text to spot patterns. More specifically, GPT-3 is the third version of a model that is focused on text generation based on being pre-trained on a huge amount of text.
+
+When a user provides text input, the system analyzes the language and uses a text predictor to create the most likely output. Even without much additional tuning or training, the model generates high-quality output text that feels similar to what humans would produce.
+
+What are the benefits of GPT-3?
+Whenever a large amount of text needs to be generated from a machine based on some small amount of text input, GPT-3 provides a good solution. There are many situations where it's not practical or efficient to have a human on hand to generate text output, or there might be a need for automatic text generation that seems human. For example, customer service centers can use GPT-3 to answer customer questions or support chatbots; sales teams can use it to connect with potential customers; and marketing teams can write copy using GPT-3.
+
+What are the risks and limitations of GPT-3?
+While GPT-3 is remarkably large and powerful, it has several limitations and risks associated with its usage. The biggest issue is that GPT-3 is not constantly learning. It has been pre-trained, which means that it doesn't have an ongoing long-term memory that learns from each interaction. In addition, GPT-3 suffers from the same problems as all neural networks: their lack of ability to explain and interpret why certain inputs result in specific outputs.
+
+Additionally, transformer architectures -- of which GPT-3 is one -- suffer from issues of limited input size. A user cannot provide a lot of text as input for the output, which can limit certain applications. GPT-3 specifically can only deal with input text a few sentences long. GPT-3 also suffers from slow inference time since it takes a long time for the model to generate from results.
+
+More concerningly, GPT-3 suffers from a wide range of machine learning bias. Since the model was trained on internet text, it exhibits many of the biases that humans exhibit in their online text. For example, two researchers at the Middlebury Institute of International Studies found that GPT-3 is particularly adept at generating radical text such as discourses that imitate conspiracy theorists and white supremacists. This presents an opportunity for radical groups to automate their hate speech. In addition, the quality of the generated text is high enough that people have started to get a bit worried about its use, concerned that GPT-3 will be used to create "fake news" articles.
+
+AI modeling bias
+Bias can be a challenge during the process of modeling an AI system.
+History of GPT-3
+Formed in 2015 as a nonprofit, OpenAI developed GPT-3 as one of its research projects with an aim to tackle the larger goals of promoting and developing "friendly AI" in a way that benefits humanity as a whole. The first version of GPT was released in 2018 and contained 117 million parameters. The second version of the model, GPT-2, was released in 2019 with around 1.5 billion parameters. As the latest version, GPT-3 jumps over the last model by a huge margin with over 175 billion parameters, which is more than 100 times its predecessor and ten times more than comparable programs.
+
+Earlier pre-trained models, such as the Bidirectional Encoder Representations from Transformers, demonstrated the viability of the text generator method and showed the power that neural networks have to generate long strings of text that previously seemed unachievable.
+
+OpenAI released access to the model incrementally to see how it would be used and to avoid potential problems. The model was released during a beta period that required users to apply to use the model, initially at no cost. However, the beta period ended on October 1, 2020, and the company released a pricing model based on a tiered credit-based system that ranges from a free access level for 100,000 credits or three months of access to hundreds of dollars per month for larger scale access. In 2020, Microsoft invested $1 billion in OpenAI to become the exclusive licensee of the GPT-3 model.
+
+Future of GPT-3
+OpenAI and others are working on even more powerful and large models. There are a number of open source efforts in play to provide a free and non-licensed model as a counterweight to the Microsoft exclusive ownership. OpenAI is planning larger and more domain-specific versions of its models trained on different and more diverse kinds of texts. Others are looking at different use cases and applications of the GPT-3 model. However, Microsoft's exclusive license poses challenges for those looking to embed the capabilities in their applications.

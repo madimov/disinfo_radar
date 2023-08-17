@@ -1,0 +1,27 @@
+Can Deepfake Tech Train Computer Vision AIs? Generative adversarial networks make phony photorealistic imagesand now synthetic data, too
+PAYAL DHAR
+06 APR 2022
+A recent survey has revealed that 99 percent of computer-vision engineers have had a machine-learning project completely canceled due to insufficient training data. Researchers have already been looking toward synthetic data to fill this breach. In fact, Gartner foresees that by 2024, more than half of data used for AI and analytics projects will be synthetically generated.
+
+A research group from the Massachusetts Institute of Technology has explored whether, given that generative models are now capable of producing highly realistic images, they can replace data sets to train computer-vision AI models. In their paper presented at the 2022 International Conference on Learning Representations, the MIT researchers asked whether, given access only to a trained generative model, and no access to the dataset that trained it, can we learn effective visual representations?
+
+As generative models, specifically generative adversarial networks (GANs), get better and better, researchers are indeed getting performance close to that of real data for learning representations, says Ali Jahanian, a research scientist at MITs Computer Science and Artificial Intelligence Laboratory (CSAIL), and one of the authors of the paper.
+
+GANs are deep-learning models that use two neural networks working against each othera generator that creates synthetic data, and a discriminator that distinguishes between real and synthetic datato generate synthetic images that are almost indistinguishable from real ones. GANs are popular for generating images and videos, including deepfakes.
+
+The research used these pretrained models for multiview representation learning. Their method uses a contrastive objective that pushes the model to produce a presentation thats similar for different views of the same object, says Anna Rumshisky, a computer scientist at the University of Massachusetts, Lowell. Jahanian and his colleagues study is a valuable proof of concept showing that applying contrastive methods to synthetic data allows the model to learn well without having the data set, she adds.
+
+
+On some specific tasks, GANs are able to outperform real data when used for a downstream transfer learning task. For example, Nvidias StyleGAN can disentangle color from the objects and can even rotate the objects. Because it is not only learning the data," he says, but also the transformations.
+
+images of regular images and generative machine-learning imagesMIT researchers have demonstrated the use of a generative machine-learning model to create synthetic data, based on real data, that can be used to train another model for image classification. This image shows examples of the generative models transformation methods.MIT
+Synthetic data has some advantages over traditional data sets, the researchers note. For instance, not all research teams have the resources to access high-volume, high-quality data, especially when it could involve sensitive information, such as personal data. In that case, pretrained generative models can be more efficient and accessible. Synthetic data is useful to simulate conditions that may not (yet) exist. These data sets can also be edited, and potentially at scale. This allows researchers to, for example, remove biases that exist in real data sets.
+
+Developing methods to control what the model is generating is an active research area, says Rumshisky. Speaking from the point of view of natural language processing, which is her area of expertise, she adds, There's been quite a few efforts in the past three years to come up with models that allow you to control what's getting generatedto push them all towards generating certain kinds of keywords, or certain kinds of attributes. If you had a mechanism to control the attributes of the text that the model is generating, she explains, you could perhaps push it away from generating certain kinds of data, such as, personal details like names, social security numbers, and phone numbers, for instance.
+
+The real test is whether the performance of ML models trained on synthetic data are on par with those trained on real data. That is still a work in progress at this stage. I am using these models on data that, for instance, comes from self-driving vehicle data, Jahanian says. Eventually we want the AI agent to be able to go to the real world andsolve [real] tasks.
+
+There is still a long road ahead for generative data sets, Jahanian says. A good question that was asked recently [was]: If these [generative] models are already biased, would we [get] biased representations? And I think that one future work would be[to look] at the representations and see to what extent they are biased and how can we unbias them.
+
+
+Jahanian says bias implicit in the GANs themselves is another concern. Does a biased GAN necessarily yield biased representations? Another issue, he adds, concerns how realistic the synthetic data sets might beand possibly how they might mislead a neural net into normalizing something that isnt normal. With real data, you probably cannot generate a view where a person is running with their dog in the middle of highway, he says. But to what extent can you do that using a generative model if it is not already seen in the underlying data? So this is a question that Im trying to work on.

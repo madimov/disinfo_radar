@@ -1,0 +1,115 @@
+[Corrected Version] Innovation Monitor: Open AIs GPT-3
+[Corrected Version] Innovation Monitor: Open AIs GPT-3 View this email in your browser
+
+
+[Note: a number of readers responded that Fridays email campaign was inaccessible on mobile. There was a formatting error that rendered the text incredibly small on a number of email clients and this has been fixed. Apologies if you had already read this newsletter but we wanted to make sure everyone who would like to could properly read it.]
+
+Welcome to the Innovation Monitor. This week, were diving into Open AIs much buzzed about GPT-3 API.
+
+As many of our readers know, Open AI is an AI research and deployment company on a mission to ensure that artificial general intelligence benefits all of humanity. Its developed, for example, a robotic hand that solves a Rubiks Cube using neural networks that aim to simulate the human brain.
+
+At its core, Open AIs GPT-3 is a text predictor powered by exponentially large amounts of data. It opens up a multitude of new applications in, for example, writing code, parsing legalese, conversating, and writing creative copy.
+
+But is this for real? How does it work?
+
+Well begin with the technology behind GPT-3 and other predictive text systems, and dig a bit into the technical details behind the model (recurrent neural networks and transformer models). Well explore some of the exciting potential applications, and most importantly, the last section will explore the ethical concerns surrounding this tech.
+
+175 billion is a number thrown around as a basis for the GPT-3 hype. Its the number of parameters the system was trained on; basically the entire Internet. For reference, its predecessor GPT-2 was trained on 1.5 billion parameters, and Microsofts Turing NLG, considered as the largest Transformer-based language generation model just six months ago, was at 17 billion. GPT-3 is huge in scope.
+
+But as with most things related to artificial intelligence, its worth taking a deep breath and forcing yourself to write a newsletter ??. The API has only been available in closed beta and the much-hyped examples are from a narrow subset of the technology community. Were excited to see emerging debate around its efficacy, bias and ethics. And from what weve seen so far, it shows incredible advances in some, but certainly not all, areas of natural language generation.
+
+As always, we wish you and your community safety, calm, and solidarity as we support each other through this unprecedented time. Thank you again for reading.
+
+All best,
+Erica Matsumoto How it works
+
+Last Friday ML engineer Aditya Joshi curated some impressive GPT-3 applications, from Figma and Google Sheet plugins to SQL code and chart generators. Theyre not interactive (its a collection of tweets, really), but just skimming these you start to get why OpenAI was so keen on getting the GPT-3 beta out to the right circles. After all, these circles are themselves use-case-generating agents that can nudge businesses into seeing the potential of language generation  while making for some really cool social media content.
+
+But while those not familiar with the underlying technology may see GPT-3 as magic (which can spawn all the wrong types of hype), its worth understanding that theres a lot of compute thrown at this problem, alongside some serious innovation. Well explore the implications further down, but lets do a quick overview of what makes the model tick.
+
+The most accessible technical explainer weve found on the subject was Leon Lins recent 6,000-word newsletter. In the How It Works sections, Lin compares the old way of doing things  using sequence to sequence (seq2seq) models  to the way GPT-3 does things.
+
+In an (overly simplified) nutshell: seq2seq models generate sentences by taking each word, in order, and putting them through a function (aka weight or parameter), then taking the output and feeding it  along with the next word  into the function again. All these temporary outputs are then used to generate sentences. This recurring pattern is why seq2seq is a recurrent neural network. It sort of looks like this:
+
+
+GPT-3 is a bit more complex. We suggest you read through Lins blog to get a vague sense of how it works (and check out these visualizations). But essentially, its a much more complicated and layered (and parallelized) version of the above. If you replace the Function box with Parameter, and imagine 175 billion of those transforming every prompt fed into GPT-3, you can get a sense of the insane number-crunching that goes on behind the scenes. Like mentioned before, its not magic  its a lot of compute, a BIG training corpus, and very smart people modifying architecture created by other very smart people.
+
+How does it compare with GPT-2? With 50x more training data, Max Woolf said GPT-3 gave him usable results 5x more often than GPT-2. Results are more impressive, more useful, but not necessarily an order of magnitude better. Remember  Gmails smart compose on steroids.
+
+Time to get into example. One viral GPT-3 app was a spreadsheet function to rule them all:
+
+
+Does this mean that Excel and Google Sheets developers will drop their API-based apps in frustration, now that a generalized AI model can retrieve these results? Not really. Right below, someone gives the correct outputs for GPT-3s guesses:
+
+
+GPT-3 isnt lightning fast, nor can it compete with specialized APIs in retrieving factual information  not yet at least.
+
+Not magic. But there are very impressive, and potentially industry-changing things, that it can do, such as summarization  check out Andrew Maynes blog on how the model is able to generate summaries at different grade levels  and creating marketing material. Lets explore this further. What it can do
+
+One thing we got a lot with GPT-2 was Olive Garden AI-variety tech demos (except real)  impressive, hilarious, and adept at showcasing the trappings of intelligence. Lin has some examples in his blog above, if you want a sample of what GPT-2 can do. Whats raising eyebrows this time around is the variety of use cases. Not just writing, but code, spreadsheet data, resumes, marketing material  with practical, non-gimmicky apps to boot.
+
+Lets explore what GPT-3 can do.
+
+Creative Writing
+
+Yes, GPT-3 can write, and it can do it well. Its difficult not to stare awe-struck as it generates a Raymond Chandler-style screenplay starring Harry Potter (check out Arram Sabetis blog for more examples  and fyi, AI Dungeons Dragon Mode is running GPT-3, if you wanted to try it for yourself).
+
+A small dingy office, early morning, furniture of the Salvation Army store variety. Sordid atmosphere. Harry Potter, in ratty tweed suit, unpressed shirt, and unshined shoes, sits behind the desk looking haggard, rumpled, and embittered.
+
+Or Anderson Cooper interviewing Kanye West on why hes running for president:
+
+Kanye: My platform is very simple. I want to make everything awesome again. Anderson Cooper: But what about foreign policy? Kanye: Who cares about that stuff? Lets talk about important stuff, like Kim Kardashians butt.
+
+Its entertaining, but we got that with GPT-2.
+
+Write Programming Code
+
+Entrepreneur Sharif Shameem demonstrated that GPT-3 can write JSX code with a simple layout description  functional front-end code!
+
+
+The model has also generated SQL, regular expressions, and JavaScript. But its not always accurate (theres inevitably going to be cherry picking). Lets move on.
+
+Dull Tasks
+
+Then there are back-office tasks that AI companies are already tackling  financial entity and data extraction, presentation generation, legal document parsing.
+
+Engineer Moe Salih extracted financial metrics from an income statement:
+
+
+Make Presentations
+
+Chief Innovation Officer at Ozonotel @nutanc had GPT-3 generate his Google Slides presentation.
+
+
+Parse & Translate Legalese
+
+And VC Michael Tefula turned legalese into simple English.
+
+
+Write Marketing Copy
+
+This is probably the most immediate practical use case of the bunch. As an augmentation tool chaperoned by a human editor, GPT-3 can generate unlimited ad copy, social content, SEO material, email subject lines, even brief articles (with proper vetting/fact-checking).
+
+Entrepreneur Sushant Kumar built a tweet generator:
+
+
+While VP of growth at Biteable Chris Frantz created a Google Ad copy generator:
+
+
+Ethical Concerns & what it could mean
+
+So what does all this mean? Edward Nevraumont is a natural skeptic (his newsletter is named Marketing BS after all), and even he was impressed, with vital caveats of course.
+
+Today, GPT-3 is not as good at writing as the best authors, but the tools literary proficiency IS about as good as many amateur writers. I am not sure we have reached the stage where a team of humans and computers could rival or outshine the most talented human writers, but it might not be long.
+
+However, the biggest danger with GPT-3 is falling into the hypestorm. As with GPT-2, were lauding a Clever Hans effect thats way more adept at appearing intelligent. For all the witty satire and functional HTML, GPT-3 also generates controversy.
+
+
+The controversy in this case was Facebooks head of AI Jerome Presenti publishing racist and sexist output from the model. The responses ranged the spectrum  vehement dissaproval to vehement approval. Definitely recommend reading Presentis response to the uproar his tweet generated:
+
+
+To close, we found Kevin Lackers (of Buzzfeed) blog a refreshing take on what the model can and cannot do. Lacker gave the model common sense questions (How many legs does a frog have), trivia (What city is in the northwest corner of Ohio), and logic questions (When counting, what number comes before 1000).
+
+It helps curb all the hype and shows the model for what it is: quite impressive in some areas, and still clearly subhuman in others. THIS WEEK IN BUSINESS HISTORY August 3, 1933  The First Mickey Mouse Watch is Introduced
+
+In a moment that made marketing, movie and merchandising history, Disney, in partnership with the Ingersoll-Waterbury Clock Company, launches the first Mickey Mouse watch. Its the first time there has ever been a product associated with a movie or television program, and is sold for $3.25 (approx $64 in todays dollars). The product became a blockbuster and saved the Connecticut-based watch company from bankruptcy.

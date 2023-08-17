@@ -1,0 +1,39 @@
+Vatis Tech completes its voice recognition technology and gets an accuracy of 97% in Romanian language, surpassing tech giants
+Deniza Cristian 10/06/2022 | 14:06
+
+TWITTER
+FACEBOOK
+LINKEDIN
+
+The speech-to-text technology developed by Romanian startup Vatis Tech for Romanian language exceeds by far the accuracy offered by tech giant applications when transcribing audio-video files.
+
+ 
+
+Completed in only 9 months after the first investment into the start-up, Vatis Tech platform reaches an accuracy of 97% at voice-to-text conversion. Thus, tens of thousands of files can be processed daily through the Vatis Tech cloud platform, such as audio-video recordings or real-time or recorded radio / TV broadcasts, podcasts, live social media streams and so on. The first two world giants with publicly available technologies offer an accuracy of less than 90% for the Romanian language.
+
+
+Vatis Tech has already converted 1,147,560 minutes of audio and video recordings into text and is processing a growing volume each month.
+
+Vatis Tech is a company founded by Adrian Ispas, Alexandru Topal? and Emanuel Nazare in 2020, all of them experts in software development. In March, Gabriel Mure?anu, an executive with over 25 years of experience, joined the sales development team.
+
+
+READ MORE ABOUT
+Consumer-packaged goods, logistics, water and wastewater industrial automation improves IT integration with Schneider Electric
+read more
+
+The company signed a pre-seed financing round in September 2021, worth 200,000 euros, from various investors (Early Game Ventures, Sparking Capital and M?lin ?tef?nescu).
+
+After the investment, we focused on the development of speech recognition algorithms, especially for the Romanian language, aiming to become the best provider of speech-to-text technology for the local market, both in terms of quality and price. We already have very good feedback from the market. All the companies and public institutions that needed such a solution with a high accuracy rate in converting voice to text, now have the most appropriate technology at their disposal and moreover, they can integrate it in their own projects based on API. We are committed to actively participate in the digitization process of national companies and institutions. The quality of the transcription offered by Vatis Tech certainly brings cost reductions, increased productivity and creates competitive advantages, says Adrian Ispas, founder and CEO of Vatis Tech.
+
+
+With its long-awaited speech-to-text technology, Vatis Tech marks a huge success on Romanian market. The company is already working with major media providers, both content and monitoring services, and plans to become, in the next period, the preferred technology of most companies and government institutions active in Romania.
+
+To use Vatis Tech platform, a user needs a personal account on https://vatis.tech/ and then upload the audio or video files to be transcribed. The free trial period includes 10 hours of audio or video content to be converted into text. After the trial period, the technology can be purchased on a subscription basis, packages going from only 1 euro / hour of content for a minimum number of hours included.
+
+One hour of audio or video content is automatically and quickly converted into text in just 15-18 minutes.
+
+Organizations that have large volumes of audio / video recordings that must be automatically transcribed into text in a very short time for further processing, but also individual users and professionals (teachers, lawyers, journalists, vloggers, presenters) can benefit from Vatis Tech platform.
+
+The main clients of Vatis Tech voice recognition technology are in areas such as media (radio-TV stations, monitoring companies), government, legal (courts, law firms), medical, financial, call center services, but also companies IT (manufacturers or integrators that provide audio-video recording systems or voice-command equipment that require audio-to-text conversion software to perform transcripts of recordings or take instructions and voice commands). Companies can use the Vatis Tech API for their own transcription and monitoring needs, or they can integrate Vatis Tech technology into their products and services with dedicated support.
+
+Vatis Tech is preparing for the second round of financing in the autumn, in order to continue its international expansion. The company plans to develop in the next 18 months new voice transcription algorithms for other 4  8 languages spoken in Europe  German, French, Spanish, but also in the countries from Eastern Europe (Czech, Hungarian, Polish ) or in the Nordics, aiming to reach the same level of accuracy and affordability. Companies such as mediaTrust, mWare, Agerpres, Klarmedia, Evenimentul Zilei or various government institutions in Romania are already working with Vatis Tech technology.

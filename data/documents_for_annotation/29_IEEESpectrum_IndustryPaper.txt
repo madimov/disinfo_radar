@@ -1,0 +1,32 @@
+Nvidias Next GPU Shows That Transformers Are Transforming AI The neural network behind big language processors is creeping into other corners of AI
+SAMUEL K. MOORE
+08 APR 2022
+4 MIN READ
+Transformers, the type of neural network behind OpenAIs GPT-3 and other big natural-language processors, are quickly becoming some of the most important in industry, and they are likely to spread to otherperhaps allareas of AI. Nvidias new Hopper H100 is proof that the leading maker of chips for accelerating AI is a believer. Among the many architectural changes that distinguish the H100 from its predecessor, the A100, is a transformer engine. Not a distinct part of the new hardware exactly, its a way of dynamically changing the precision of the calculations in the cores to speed up the training of transformer neural networks.
+
+One of the big trends in AI is the emergence of transformers, says Dave Salvator, senior product manager for AI inference and cloud at Nvidia. Transformers quickly took over language AI, because their networks pay attention to multiple sentences, enabling them to grasp context and antecedents. (The T in the benchmark language model BERT stands for transformer as it does in the occasionally insultingGPT-3.)
+
+We are trending very quickly toward trillion parameter models Dave Salvator, Nvidia
+
+But more recently, researchers have been seeing an advantage to applying that same sense of attention to vision and other models dominated by convolutional neural networks. Salvator notes that more than two-thirds of papers about neural networks in the last two years dealt with transformers or their derivatives. The number of challenges transformers can take on continues to grow, he says.
+
+However, transformers are among the biggest neural-network models in terms of the number of parameters involved. And they are growing much faster than other models. We are trending very quickly toward trillion-parameter models, says Salvator. Nvidias analysis shows the training needs of transformer models growing 275-fold every two years, while the trend for all other models is 8-fold growth every two years. Bigger models need more computational resources especially for training, but also for operating in real time as they often need to do. Nvidia developed the transformer engine to help keep up.
+
+
+chart of computational needs of transformersThe computational needs of transformers are growing more rapidly than those of other forms of AI. Those are growing really fast, too, of course.NVIDIA
+The transformer engine is really software combined with new hardware capabilities in Hoppers tensor cores. These are the units dedicated to carrying out machine learnings bread-and-butter calculationmatrix multiply and accumulate. Hopper has tensor cores capable of computing with floating-point numbers of a variety of precisionfrom 64-bit down to 8-bit. The A100s cores were designed for floating-point numbers only as short as 16 bits. But the trend in AI computing has been toward developing neural nets that lean on the lowest precision that will still yield an accurate result. The smaller formats compute faster and more efficiently, and they require less memory and memory bandwidth. The addition of 8-bit floating-point units in the H100 leads to a significant speedupdouble the throughput compared to its 16-bit units.
+
+The transformer engines secret sauce is its ability to dynamically choose what precision is needed for each layer in the neural network at each step in training a neural network. The least-precise units, the 8-bit floating point, can speed through their computations, but then produce 16-bit or 32-bit sums for the next layer if thats the precision needed there. The Hopper goes a step further, though. Its 8-bit floating-point units can do their matrix math with either of two forms of 8-bit numbers.
+
+To understand why thats helpful, you might need a quick lesson in the structure of floating-point numbers. This format represents numbers using some of the bits for the exponent, some for the mantissa, and one for the sign. The more bits you have representing the exponent, the greater the range of numbers you can express. The more bits in the mantissa, the greater the precision of those numbers. The standard 16-bit floating-point format (IEEE 754-2008) demands 5 bits of exponent and 10 bits of mantissa, along with the sign bit. Seeking to reduce data-storage requirements and speed machine learning, makers of AI accelerators recently adopted bfloat-16, which trades three bits of mantissa for an added exponent, giving it the same range as a 32-bit number.
+
+Nvidia has taken that trade-off further. One of the unique things we found when you get to [8-bit] is that there really isnt a one size fits all format that we were confident would work, says Jonah Alben, Nvidias senior vice president of GPU engineering. So Hoppers 8-bit units can work with either 5 bits of exponent and two of mantissa (E5M2) when range is important or 4 bits of exponent and three of mantissa (E4M3) when precision is key. The transformer engine orchestrates whats needed on the fly to speed training. We embody our experience testing transformers into this so that it knows how to make the right decisions, says Alben.
+
+
+In practice, this usually means using different types of floating-point formats for the different parts of a training task. Generally, training a neural network involves exposing it to lots of data (forward inferencing), measuring how bad the network is at doing its task on that data, and then adjusting the network parameters, layer-by-layer backwards through the network to improve it (back propagation). Wash, rinse, repeat. Generally, back propagation needs greater precision, so the E4M3 format might be favored there, while the inferencing (forward) step favors the E5M2s range.
+
+Nvidia is not alone in pursuing this approach. At the IEEE/ACM International Symposium on Computer Architecture in 2021, IBM researchers presented an accelerator called RaPiD that used the E5M2/E4M3 scheme for training, as well. A system of four such chips delivered training speedups between 10 and 100 percent, depending on the neural network involved.
+
+Nvidias Hopper will be available in the third quarter of 2022.
+
+This story was corrected on 14 April to give the proper format for E5M2.

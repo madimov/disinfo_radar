@@ -1,0 +1,53 @@
+OpenAI: Look at our awesome image generator! Google: Hold my Shiba Inu
+Devin Coldewey@techcrunch / 1:14 AM GMT+2May 24, 2022
+
+The AI world is still figuring out how to deal with the amazing show of prowess that is DALL-E 2s ability to draw/paint/imagine just about anything but OpenAI isnt the only one working on something like that. Google Research has rushed to publicize a similar model its been working on  which it claims is even better.
+
+Imagen (get it?) is a text-to-image diffusion-based generator built on large transformer language models that okay, lets slow down and unpack that real quick.
+
+Text-to-image models take text inputs like a dog on a bike and produce a corresponding image, something that has been done for years but recently has seen huge jumps in quality and accessibility.
+
+Part of that is using diffusion techniques, which basically start with a pure noise image and slowly refine it bit by bit until the model thinks it cant make it look any more like a dog on a bike than it already does. This was an improvement over top-to-bottom generators that could get it hilariously wrong on first guess, and others that could easily be led astray.
+
+The other part is improved language understanding through large language models using the transformer approach, the technical aspects of which I wont (and cant) get into here, but it and a few other recent advances have led to convincing language models like GPT-3 and others.
+
+Examples of Imagen generated art.
+Image Credits: Google Research
+
+
+Imagen starts by generating a small (6464 pixels) image and then does two super resolution passes on it to bring it up to 10241024. This isnt like normal upscaling, though, as AI super-resolution creates new details in harmony with the smaller image, using the original as a basis.
+
+Say for instance you have a dog on a bike and the dogs eye is 3 pixels across in the first image. Not a lot of room for expression! But on the second image, its 12 pixels across. Where does the detail needed for this come from? Well, the AI knows what a dogs eye looks like, so it generates more detail as it draws. Then this happens again when the eye is done again, but at 48 pixels across. But at no point did the AI have to just pull 48 by whatever pixels of dog eye out of its lets say magic bag. Like many artists, it started with the equivalent of a rough sketch, filled it out in a study, then really went to town on the final canvas.
+
+This isnt unprecedented, and in fact artists working with AI models use this technique already to create pieces that are much larger than what the AI can handle in one go. If you split a canvas into several pieces, and super-resolution all of them separately, you end up with something much larger and more intricately detailed; you can even do it repeatedly. An interesting example from an artist I know:
+
+This content is hosted by a third party. To view it, please update your privacy preferences. Manage Settings.
+
+The advances Googles researchers claim with Imagen are several. They say that existing text models can be used for the text encoding portion, and that their quality is more important than simply increasing visual fidelity. That makes sense intuitively, since a detailed picture of nonsense is definitely worse than a slightly less detailed picture of exactly what you asked for.
+
+For instance, in the paper describing Imagen, they compare results for it and DALL-E 2 doing a panda making latte art. In all of the latters images, its latte art of a panda; in most of Imagens its a panda making the art. (Neither was able to render a horse riding an astronaut, showing the opposite in all attempts. Its a work in progress.)
+
+Computer-generated images of pandas making or being latte art.
+Image Credits: Google Research
+
+
+In Googles tests, Imagen came out ahead in tests of human evaluation, both on accuracy and fidelity. This is quite subjective obviously, but to even match the perceived quality of DALL-E 2, which until today was considered a huge leap ahead of everything else, is pretty impressive. Ill only add that while its pretty good, none of these images (from any generator) will withstand more than a cursory scrutiny before people notice theyre generated or have serious suspicions.
+
+OpenAI is a step or two ahead of Google in a couple ways, though. DALL-E 2 is more than a research paper, its a private beta with people using it, just as they used its predecessor and GPT-2 and 3. Ironically, the company with open in its name has focused on productizing its text-to-image research, while the fabulously profitable internet giant has yet to attempt it.
+
+
+
+Thats more than clear from the choice DALL-E 2s researchers made, to curate the training dataset ahead of time and remove any content that might violate their own guidelines. The model couldnt make something NSFW if it tried. Googles team, however, used some large datasets known to include inappropriate material. In an insightful section on the Imagen site describing Limitations and Societal Impact, the researchers write:
+
+Downstream applications of text-to-image models are varied and may impact society in complex ways. The potential risks of misuse raise concerns regarding responsible open-sourcing of code and demos. At this time we have decided not to release code or a public demo.
+
+The data requirements of text-to-image models have led researchers to rely heavily on large, mostly uncurated, web-scraped datasets. While this approach has enabled rapid algorithmic advances in recent years, datasets of this nature often reflect social stereotypes, oppressive viewpoints, and derogatory, or otherwise harmful, associations to marginalized identity groups. While a subset of our training data was filtered to remove noise and undesirable content, such as pornographic imagery and toxic language, we also utilized LAION-400M dataset which is known to contain a wide range of inappropriate content including pornographic imagery, racist slurs, and harmful social stereotypes. Imagen relies on text encoders trained on uncurated web-scale data, and thus inherits the social biases and limitations of large language models. As such, there is a risk that Imagen has encoded harmful stereotypes and representations, which guides our decision to not release Imagen for public use without further safeguards in place
+
+While some might carp at this, saying Google is afraid its AI might not be sufficiently politically correct, thats an uncharitable and short-sighted view. An AI model is only as good as the data its trained on, and not every team can spend the time and effort it might take to remove the really awful stuff these scrapers pick up as they assemble multi-million-images or multi-billion-word datasets.
+
+Such biases are meant to show up during the research process, which exposes how the systems work and provides an unfettered testing ground for identifying these and other limitations. How else would we know that an AI cant draw hairstyles common among Black people  hairstyles any kid could draw? Or that when prompted to write stories about work environments, the AI invariably makes the boss a man? In these cases an AI model is working perfectly and as designed  it has successfully learned the biases that pervade the media on which it is trained. Not unlike people!
+
+
+But while unlearning systemic bias is a lifelong project for many humans, an AI has it easier and its creators can remove the content that caused it to behave badly in the first place. Perhaps some day there will be a need for an AI to write in the style of a racist, sexist pundit from the 50s, but for now the benefits of including that data are small and the risks large.
+
+At any rate, Imagen, like the others, is still clearly in the experimental phase, not ready to be employed in anything other than a strictly human-supervised manner. When Google gets around to making its capabilities more accessible Im sure well learn more about how and why it works.

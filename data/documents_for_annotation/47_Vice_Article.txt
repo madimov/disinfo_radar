@@ -1,0 +1,33 @@
+Image-Generating AI Keeps Doing Weird Stuff We Don't Understand
+AI experts are arguing after a viral Twitter thread claimed DALL-E is creating its own hidden language to categorize images.
+Janus Rose
+By Janus Rose
+NEW YORK, US
+June 1, 2022, 7:35pm
+
+LanAI-generated image of two farmers talking with a speech bubble containing gibberish words. Right: A search for the gibberish words generating images of vegetables
+For all the advancements in machine learning over the past decade, researchers still often have no idea how automated systems arrive at their determinations. Complex natural language processing systems like GPT-3 are often so uncanny that experts struggle to understand why the AI is able to produce such hauntingly-accurate results.
+
+
+Case in point: a viral Twitter thread that claimed DALL-E, the popular text-to-image generation system created by OpenAI, is creating its own language of gibberish words and matching them to classes of images like birds and insects.
+
+In the thread, Giannis Daras, a computer science PhD student at the University of Texas at Austin, showed several examples of gibberish text that is generated when instructing DALL-E to generate images that include printed words. He then claims that those seemingly random nonsense words maintain their associations with certain images when queried separately in the systemfor example, the gibberish words produced when telling the system to generate two farmers talking about vegetables, with subtitles can then be used to generate images of vegetables.
+
+Daras goes on to claim that other nonsense phrases can be similarly used to consistently generate birds, insects, and other types of images.
+
+
+[T]ext prompts such as: An image of the word airplane often lead to generated images that depict gibberish text. We discover that this produced text is not random, but rather reveals a hidden vocabulary that the model seems to have developed internally, Daras and Alexandros G. Dimakis claim in a research paper, which has not yet been peer reviewed. For example, when fed with this gibberish text, the model frequently produces airplanes.
+
+
+While fascinating, Daras incredible claims were quickly challenged by other researchers, who refuted the idea that DALL-E has developed a secret language to classify different types of images. While this seems to be true in some casesthe phrase Apoploe vesrreaitais always generates images of birds, for exampleits not consistent enough where the phrases will carry across different variations prompts. For example, as researcher Benjamin Hilton points out, the addition of the phrase 3D render to a prompt associated with bugs will produce images of undersea creatures and rocks.
+
+My best guess? Its random chance. Or just maybe (if you really press me) Apoploe vesrreaitais looks like a binomial name for some birds or bugs, Hilton wrote, in a thread responded to Daras claims. To me this is all starting to look a lot more like stochastic, random noise, than a secret DALL-E language.
+
+
+Since Daras paper is not yet peer reviewed, it remains to be seen to what extent these findings are accurate. But its also not the first time AI systems have utterly confounded humans. For example, a neural network trained by Google to turn satellite images into street maps was found to be cheating by hiding data within the generated images, allowing it to approximate aerial features instead of learning to recognize and produce them. 
+
+This is due to the massive nature of machine learning language models, which often contain tens of billions of parameters, and the similarly massive datasets used to train them. AI ethics researchers have warned that the scale of these large models makes it extremely difficult to hold their designers accountable, since its often impossible to trace what factors caused the system to arrive at biased and harmful decisions.
+
+One AI and security consultant who works with deep learning systems told Motherboard that these problems come up frequently, and often baffle the researchers who built the systems themselves. 
+
+Im not kidding when I say  I feel less like a coder and more like a fucking microbiologist and cognitive behavioral psychologist when dealing with AI training, said the consultant, who asked to remain anonymous due to the nature of their work. Neural networks are not code, they behave more like Petri dishes. You watch them go and hope you can understand whats happening as you feed it.

@@ -1,0 +1,27 @@
+Meta Aims to Build the Worlds Fastest AI Supercomputer The AI Research SuperCluster could help the company develop real-time voice translations
+SAMUEL K. MOORE 24 JAN 2022
+Meta, parent company of Facebook, says it has built a research supercomputer that is among the fastest on the planet. By the middle of this year, when an expansion of the system is complete, it will be the fastest, Meta researchers Kevin Lee and Shubho Sengupta write in a blog post today. The AI Research SuperCluster (RSC) will one day work with neural networks with trillions of parameters, they write. The number of parameters in neural network models have been rapidly growing. The natural language processor GPT-3, for example, has 175 billion parameters, and such sophisticated AIs are only expected to grow.
+
+RSC is meant to address a critical limit to this growth, the time it takes to train a neural network. Generally, training involves testing a neural network against a large data set, measuring how far it is from doing its job accurately, using that error signal to tweak the networks parameters, and repeating the cycle until the neural network reaches the needed level of accuracy. It can take weeks of computing for large networks, limiting how many new networks can be trialed in a given year. Several well-funded startups, such as Cerebras and SambaNova, were launched in part to address training times.
+
+Among other things, Meta hopes RSC will help it build new neural networks that can do real-time voice translations to large groups of people, each speaking a different language, the researchers write. Ultimately, the work done with RSC will pave the way toward building technologies for the next major computing platformthe metaverse, where AI-driven applications and products will play an important role, they write.
+
+
+The experiences were building for the metaverse require enormous compute power (quintillions of operations / second!) and RSC will enable new AI models that can learn from trillions of examples, understand hundreds of languages, and more, Meta CEO and cofounder Mark Zuckerberg said in a statement.
+
+Compared to the AI research cluster Meta uses today, which was designed in 2017, RSC is a change in the number of GPUs involved, how they communicate, and the storage attached to them.
+
+In early 2020, we decided the best way to accelerate progress was to design a new computing infrastructure from a clean slate to take advantage of new GPU and network fabric technology. We wanted this infrastructure to be able to train models with more than a trillion parameters on data sets as large as an exabytewhich, to provide a sense of scale, is the equivalent of 36,000 years of high-quality video.
+The old system connected 22,000 Nvidia V100 Tensor Core GPUs. The new one switches over to Nvidias latest core, the A100, which has dominated in recent benchmark tests of AI systems. At present the new system is a cluster of 760 Nvidia DGX A100 computers, with a total of 6,080 GPUs. The computer cluster is bound together using an Nvidia 200-gigabit-per-second Infiniband network. The storage includes 46 petabytes (46 million billion bytes) of cache storage and 175 petabytes of bulk flash storage.
+
+Compared to the old V100-based system, RSC marked a 20-fold speedup in computer vision tasks and a 3-fold boost in handling large natural-language processing.
+
+When the system is complete in the middle of this year, it will connect 16,000 GPUs, which, Lee and Sengupta write, making it one of the largest of its kind. At that point, its cache and storage will have a capacity of 1 exabyte (1 billion billion bytes) and be able to serve 16 terabytes per second of data to the system. The new system will also focus on reliability. Thats important because very large networks might take weeks of training time, and you dont want a failure partway through the task that means having to start over.
+
+Three people wearing construction helmets in the foreground look out to an empty warehouse-sized room where giant spools of something sit.Metas RSC was designed and built entirely during the COVID-19 pandemic.META
+For reference, the largest production-ready systems tested in the latest round of the MLPerf neural network training benchmarks was a 4,320-GPU system fielded by Nvidia. That system could train the natural language processor BERT in less than a minute. However BERT has only 110 million parameters compared to the trillions Meta wants to work with.
+
+The launch of RSC also comes with a change in the way Meta uses data for research:
+
+Unlike with our previous AI research infrastructure, which leveraged only open source and other publicly available data sets, RSC also helps us ensure that our research translates effectively into practice by allowing us to include real-world examples from Metas production systems in model training.
+The researchers write that RSC will be taking extra precautions to encrypt and anonymize this data to prevent and chance of leakage. Those steps include that RSC is isolated from the larger internethaving neither inbound nor outbound connections. Traffic to RSC can flow in only from Metas production data centers. In addition, the data path between storage and the GPUs is end-to-end encrypted, and data is anonymized and subject to a review process to confirm the anonymization.

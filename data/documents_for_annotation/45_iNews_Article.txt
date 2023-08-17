@@ -1,0 +1,48 @@
+Dall-E Mini: the artificial intelligence tool turning text to bizarre and hilarious images
+Programmer Boris Dayma is showing the public what AI can really do, and people are letting their imaginations run wild
+By Karl McDonald
+Deputy national editor
+June 7, 2022 1:26 pm(Updated 1:55 pm)
+Ever wondered what Boris Johnson would look like painted in the style of pop artist Roy Lichtenstein? What about Darth Vader playing a bass guitar?
+
+The unthinkable is now possible  and ubiquitous on social media  thanks to Dall-E Mini, a text-to-image AI app that allows anyone to use exciting new machine learning technology to create fascinating and often bizarre art.
+
+Images created by artificial intelligence using text prompts have been improving by leaps and bounds in recent years. Midjourney, Googles Imagen and the original, high-powered Dall-E and Dall-E 2 have been creating remarkable pictures, often photorealistic or better, and challenging our understanding of art and machines in the process.
+
+But while the results are often stunning, the AI tools are often in the hands of the privileged few. Dall-E Mini, produced by programmer Boris Dayma, has sought to change that, giving ordinary people the opportunity to use their imagination with a lower-powered but still often astonishing piece of software. The result has been a social media phenomenon.
+
+People are putting Muppets in all kinds of situations, Dayma, 35, told i. Theres a new trend every day.
+
+The programmer, who is originally from Normandy but lives and works in Houston, Texas, built the AI model in its basic form over the course of a month in July 2021 as part of a competition, supported by the AI community Hugging Face and Google, which supplied computing power.
+
+By the end of it, I was happy with having something that kind of worked, said Dayma. People were very interested anyway.
+
+With other AI models only used by the privileged few, the idea was to bring something functional to ordinary people. It was both a technical challenge and an interest in having something publicly available, he said.
+
+People [who have access to powerful AI image models] share the results they like the most. But having a demo available to actually use gives the public an idea of what the model can actually do. They can see where the model excels and where it has more difficulties.
+
+Spending 10 minutes with Dall-E Mini makes clear that the tool, which can run on a web browser on any ordinary computer or phone, is better at some things than others. Cartoonish characters from games and television, for example, can translate better due to their simpler features, while Picassos abrupt lines are easier for the AI to parse than Caravaggios shadowy human expressions.
+
+
+
+In the UK, Mr Blobby, with his fixed and already slightly horrifying face, has become a common character, deployed to fight in the Bayeux Tapestry, resign as Prime Minister, interrupt Taylor Swift and even take part in a psychogeographical walk through east London. Francis Bacons style also works well.
+
+The hardest part is definitely people, says Dayma. If you draw a landscape with Dall-E, its amazing, because if theres a small problem with a tree, nobody notices it and the landscape still looks great.
+
+But if theres a problem with a face, we notice it. If theres a small flaw with an eye, we can see it. With an avocado, even if it has flaws, its good enough.
+
+He adds: Abstract painting is something its good at. I think thats because with abstract painting, you can make mistakes and it still looks like abstract painting.
+
+Traffic has been exploding at Dall-E Mini over the past few weeks as new groups of people discover the product by word of mouth, and by seeing others post their results. Dayma finds himself spending more time than he would like keeping it online and working efficiently, as opposed to improving the AI itself, as he would prefer.
+
+But while other tools restrict their access strictly, for Dayma its important that not only a few people have access to it, with a premium model  we want to keep the balance between people being able to access to it while also being aware of costs.
+
+Where next for these sorts of applications of AI?
+
+Generation of images is already quite good. People have started to look into sound, whether thats generated voice, or music or any other type of sound, says Dayma. Theres the video aspect. There are already basic prototypes  if you can make images, you can stack them to make video  but its probably going to get much better. Then the next step will be to create 3D objects for use in games and movies.
+
+Dall-E Mini remains a limited application of AI technology, and there are as many misses as hits, though when the model gets something right, it often gets it right in a bizarre and unexpected way, which makes persevering worthwhile.
+
+But Dayma wants people to know that its worth checking back later even if they think theyve had enough fun with the project. This is one of the joys of machine learning.
+
+The model is still training, he says. Its still going to improve. Day by day, it only improves a little, but week by week, you can really notice it.

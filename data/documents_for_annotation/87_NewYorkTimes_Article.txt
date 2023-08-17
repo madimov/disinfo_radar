@@ -1,0 +1,104 @@
+Here come the fake videos
+By KEVIN ROOSE - March 7, 2018 @ 1:43am
+THE scene opened on a room with a red sofa, a potted plant and the kind of bland modern art youd see on a therapists wall.
+
+In the room was Michelle Obama, or someone who looked exactly like her.
+
+Wearing a low-cut top with a black bra visible underneath, she posed for the camera and flashed her unmistakable smile.
+
+The video, which appeared on the online forum Reddit, was whats known as a deepfake  an ultra-realistic fake video made with artificial intelligence software.
+
+MORE NEWS
+Asia Cup here we come
+Report lodged over defamatory reports on the PM [NSTTV]
+Tengku Zafrul denies reports he has resigned
+#TECH: Digi releases Raya video
+It was created using a programme called FakeApp, which superimposed Obamas face onto the body of a pornographic film actress.
+
+The hybrid was uncanny  if you didnt know better, you might have thought it was really her.
+
+Until recently, realistic computer-generated video was a laborious pursuit available only to big-budget Hollywood productions or cutting-edge researchers.
+
+But, in recent months, a community of hobbyists has begun experimenting with more powerful tools, including FakeApp  a programme that was built by an anonymous developer using open-source software written by Google.
+
+FakeApp makes it free and relatively easy to create realistic face swaps and leave few traces of manipulation.
+
+Since a version of the app appeared on Reddit in January, it has been downloaded more than 120,000 times, according to its creator.
+
+Deepfakes are one of the newest forms of digital media manipulation, and one of the most obviously mischief-prone.
+
+Its not hard to imagine this technology being used to smear politicians, create counterfeit revenge porn or frame people for crimes.
+
+Lawmakers have already begun to worry about how deepfakes could be used for political sabotage and propaganda.
+
+Some users on Reddit defended deepfakes and blamed the media for over-hyping their potential for harm.
+
+Others moved their videos to alternative platforms, rightly anticipating that Reddit would crack down under its rules against nonconsensual pornography.
+
+And, a few expressed moral qualms about putting the technology into the world.
+
+After lurking for several weeks in Reddits deepfake community, I decided to see how easy it was to create a (safe for work, nonpornographic) deepfake using my own face.
+
+I downloaded FakeApp and enlisted two technical experts to help me  Mark McKeague, a colleague in The New York Timess research and development department, and a deepfake creator, known only as Derpfakes.
+
+Because of the controversial nature of deepfakes, Derpfakes would not give his real name.
+
+What I learned is that making a deepfake isnt simple.
+
+But, its not rocket science, either. Picking the right source data is crucial.
+
+Short video clips are easier to manipulate than long clips, and scenes shot at a single angle produce better results than scenes with multiple angles.
+
+Genetics also help. The more the faces resemble each other, the better.
+
+Im a brown-haired white man with a short beard, so Mark and I decided to try several other brown-haired, stubbled white guys.
+
+We started with Ryan Gosling. I also sent Derpfakes, my outsourced Reddit expert, several video options to choose from.
+
+Next, we took several hundred photos of my face, and gathered images of Goslings face using a clip from a recent TV appearance.
+
+FakeApp uses these images to train the deep learning model and teach it to emulate our facial expressions.
+
+To get the broadest photo set possible, I twisted my head at different angles, making as many different faces as I could.
+
+Mark then used a programme to crop those images down, isolating just our faces, and manually deleted blurred or badly cropped photos.
+
+He then fed the frames into FakeApp. In all, we used 417 photos of me, and 1,113 of Gosling.
+
+When the images were ready, Mark pressed start on FakeApp, and the training began.
+
+His computer screen filled with images of my face and Goslings face, as the programme tried to identify patterns and similarities.
+
+About eight hours later, after our model had been sufficiently trained, Mark used FakeApp to finish putting my face on Goslings body.
+
+The video was blurry and bizarre, and Goslings face occasionally flickered into view.
+
+Only the legally blind would mistake the person in the video for me.
+
+After the experiment, I reached out to the anonymous creator of FakeApp through an email address on its website.
+
+I wanted to know how it felt to create a cutting-edge AI tool, only to have it gleefully co-opted by ethically challenged pornographers.
+
+A man wrote back, identifying himself as a software developer in Maryland.
+
+Like Derpfakes, the man would not give me his full name, and instead went by his first initial, N.
+
+He said he had created FakeApp as a creative experiment and was chagrined to see Reddits deepfake community use it for ill.
+
+N said he didnt support the use of FakeApp to create nonconsensual pornography or other abusive content. And, he said he agreed with Reddits decision to ban explicit deepfakes.
+
+But, he defended the product.
+
+On the day of the school shooting last month in Parkland, Florida, a screenshot of a BuzzFeed News article, Why We Need to Take Away White Peoples Guns Now More Than Ever, written by a reporter named Richie Horowitz, began making the rounds on social media.
+
+The whole thing was fake. Richie Horowitz did not exist, and no article with that title was ever published on the site.
+
+But, the doctored image pulsed through right-wing outrage channels and was boosted by activists on Twitter. It wasnt an AI-generated deepfake, or even a particularly sophisticated Photoshop job, but it did the trick.
+
+Online misinformation, no matter how sleekly produced, spreads through a familiar process once it enters our social distribution channels. The hoax gets 50,000 shares, and the debunking an hour later gets 200.
+
+The carnival barker gets an algorithmic boost on services like Facebook and YouTube, while the expert screams into the void.
+
+Theres no reason to believe that deepfake videos will operate any differently. People will share them when theyre ideologically convenient and dismiss them when theyre not.
+
+The dupes who fall for satirical stories from The Onion will be fooled by deepfakes, and the scrupulous people who care about the truth will find ways to detect and debunk them. --NYT

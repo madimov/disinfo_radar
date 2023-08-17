@@ -1,0 +1,71 @@
+Dall-E 2: Why the AI image generator is a revolutionary invention
+By Alex HughesPublished: 06th May, 2022 at 09:25
+A piece of software is able to generate detailed images from just a short, worded prompt but it comes with obvious issues.
+Artificial intelligence has frequently gone head-to-head with humans in creative bouts. It can beat grandmasters at chess, create symphonies, pump out heart-felt poems, and now create detailed art from just a short, worded prompt.
+
+The team over at OpenAI have recently created a powerful piece of software, able to produce a wide range of images in seconds, just from a string of words it is given.
+
+This program is known as Dall-E 2 and has been built to revolutionise the way we use AI with images. We spoke to Aditya Ramesh, one of the lead engineers on Dall-E 2 to better understand what it does, its limitations and the future that it could hold.
+
+
+What does Dall-E 2 do?
+Back in 2021, the AI research development company OpenAI created a program known as Dall-E  a blend of the names Salvador Dali and Wall-E. This software was able to take a worded prompt and create a completely unique AI-generated image.
+
+For example, a fox in a tree would bring up a photo of a fox sat up in a tree, or the search astronaut with a bagel in its hand would show well, you see where this is going.
+
+While this was certainly impressive, the images were often blurry, not fully accurate and took a while to create. Now, OpenAI has made vast improvements to the software, creating Dall-E 2  a powerful new iteration that performs at a much higher level.
+
+Along with a few other new features, the key difference with this second model is a huge improvement in the image resolution, lower latencies (how long the image takes to be created) and a more intelligent algorithm for creating the images.
+
+The software doesn't just create an image in a single style, you can add different art techniques to your request, inputing styles of drawing, oil painting, a plasticine model, knitted out of wool, drawn on a cave wall, or even as a 1960s movie poster.
+
+"Dall-E is a very useful assistant that amplifies what a person can normally do but it really is dependant on the creativity of the person using it. An artist or someone more creative can create some really interesting stuff," says Ramesh.
+
+A jack of all trades
+On top of the technologys ability to produce images just on worded prompts, Dall-E 2 has two other clever techniques  inpainting and variations. These two applications work in a similar way to the rest of Dall-E, just with a twist.
+
+With inpainting, you can take an existing image and edit new features into it or change parts of it. If you have an image of a living room, you can add a new rug, a dog on the sofa, change the painting on the wall or even throw an elephant in the room because that always goes well.
+
+Variations is another service that requires an existing image. Feed in a photo, illustration, or some other kind of image and Dall-Es variation tool will create hundreds of its own versions.
+
+You could give it a picture of a Teletubby, and it will replicate it, creating similar versions. An old painting of a samurai will create similar ones, you could even take a photo of some graffiti you see and get similar results back.
+
+You can also use this tool to combine two images into one freaky collaboration. Mix a dragon and a corgi, or a rainbow and a pot to generate pots with some colour to them.
+
+Limitations of Dall-E 2
+While there are no doubts around how impressive this technology is, it isnt without its limitations.
+
+One issue you face is the confusion of certain words or phrases. For example, when we input a black hole inside of a box, Dall-E 2 returned a hole that was black inside of a box, instead of the cosmic body that we were after.
+
+This can happen often when a word has multiple meanings, phrases can be misunderstood or if colloquialisms are used. This is to be expected from an artificial intelligence taking the literal meaning of your words.
+
+Something else to get used to with the system is how the prompts and artistic styles work. When you type something in, the initial image might not be correct and while it technically matched your request, it doesnt fully achieve the feel or idea you had in your head. This can take some getting used to and some minor adjustments, says Ramesh.
+
+Another area where Dall-E can become confused is with variable blending. If you ask the model to draw a red cube on top of a blue cube sometimes it gets confused and does the opposite. We can fix this fairly easily in future iterations of the system I think, says Ramesh.
+
+The fight against stereotypes and human input
+Like all good things on the internet, it doesnt take long for one key issue to arise  how can this technology be used unethically? And not to mention the added issue of AIs history of learning some uncouth behaviour from the people of the internet.
+
+
+When it comes to a technology around the AI creation of images, it seems obvious that this could be manipulated in many ways: propaganda, fake news, and manipulated images come to mind as the obvious routes.
+
+To get around this, the OpenAI team behind Dall-E has implemented a safety policy for all images on the platform which works in three stages. The first stage involves filtering out data that includes a major violation. This includes violence, sexual content and images the team would consider innapropriate.
+
+The second stage is a filter that looks out for more subtle points that are hard to detect. This could be political content, or propaganda of some form. Finally, in its current form, every image produced by Dall-E is reviewed by a human, but this isnt a viable stage in the long term as the product grows.
+
+Despite the use of this policy, the team is clearly aware of the forthcomings of this product. They have listed out the risks and limitations of Dall-E, detailing the number of issues they could face.
+
+This covers a vast number of problems. For example, images can often show bias or stereotypes like the use of the term wedding returning mostly western weddings. Or searching lawyer shows a majority of white older men, with nurses doing the same with women.
+
+These are not new problems at all and its something Google has been dealing with for years. Often image generation can follow the prejudices seen in society.
+
+There are also ways to trick Dall-E into producing content that the term is looking to filter. While blood would trigger the violence filter, a user could type a pool of ketchup or something similar in an attempt to get around it.
+
+Along with the team's safety policy, they have a clear content policy users need to abide by.
+
+Future of Dall-E
+So the technology is out there, and clearly performing well, but what is next for the Dall-E 2 team? Right now the software is being slowly rolled out through a waitlist with no clear plans of opening it to the wider public yet.
+
+By slowly releasing their product, the OpenAI group can monitor its growth, developing their safety procedures and preparing their product for the likely millions of people who will soon be imputing their commands.
+
+We want to put this research into the hands of people but for the time being, were just interesting in getting feedback on how people use the platform. We are definitely interested in deploying this technology more widely, but we currently have no plans for commercialisation, says Ramesh.

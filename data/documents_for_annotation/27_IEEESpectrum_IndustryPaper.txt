@@ -1,0 +1,31 @@
+AI Fuses With Quantum Computing in Promising New Memristor Quantum device points the way toward an exponential boost in smart computing capabilities
+CHARLES Q. CHOI13 APR 2022
+Recent years have seen computing advance in two major waysbreakthroughs in machine learning to develop algorithms that improve automatically through experience, and research into quantum computers that can theoretically prove more powerful than any supercomputer. Now scientists have created the first prototype of a device known as a quantum memristor, which might help bring together the best of both of those worldscombining artificial intelligence with quantum computing for unprecedented capabilities.
+
+A memristor, or memory resistor, is a kind of building block for electronic circuits that scientists predicted roughly 50 years ago but created for the first time only a little more than a decade ago. These components are essentially electric switches that can remember whether they were toggled on or off after their power is turned off. As such, they resemble synapsesthe links between neurons in the human brainwhose electrical conductivity strengthens or weakens depending on how much electrical charge has passed through them in the past.
+
+In theory, memristors can act like artificial neurons capable of both computing and storing data. As such, researchers have suggested that neuromorphic or brainlike computers built using memristors would perform well at running neural networks, which are machine-learning systems that use synthetic versions of synapses and neurons to mimic the process of learning in the human brain.
+
+The memristor, unlike any other quantum component, has memory.
+Michele Spagnolo, University of Vienna
+
+Now scientists in Austria and Italy have developed a quantum version of the memristor that they suggest could lead to quantum neuromorphic computers. They detailed their findings online last month in the journal Nature Photonics.
+
+
+Quantum computers rely on how the universe becomes a fuzzy place at its very smallest levels. For example, atoms, photons, and other building blocks of the cosmos can exist in states of flux known as superpositions, meaning they can essentially be located in two or more places at once, or spin in two opposite directions at the same time.
+
+Whereas classical computers switch transistors either on or off to symbolize data as ones or zeroes, quantum computers use quantum bitsqubitsthat can be in a state of superposition where they are both 1 and 0 simultaneously. The more qubits that are linked together in a quantum computer, the greater its computational power can grow, in an exponential fashion.
+
+Scientists are still researching the specific problems for which quantum computing might have an advantage over classical computing. Recently, they have begun exploring whether quantum computing might help boost machine learning.
+
+Previous research suggested developing a quantum memristor using photons to help support quantum machine learning. However, that prior work would have been extremely challenging to realize, because it required to create a quantum superposition of a one-photon state with a zero-photonthat is, a vacuumstate, says study lead author Michele Spagnolo, a doctoral student in quantum physics at the University of Vienna.
+
+In the new study, Spagnolo and his colleagues instead developed a quantum memristor that relies on a stream of photons existing in superpositions where each single photon can travel down two separate paths laser-written onto glass. One of the channels in this single-qubit integrated photonic circuit is used to measure the flow of these photons, and this data, through a complex electronic feedback scheme, controls the transmissions on the other path, resulting in the device behaving like a memristor.
+
+Normally, memristive behavior and quantum effects are not expected to coexist, Spagnolo notes. Memristors are devices that essentially work by measuring the data flowing within them, but quantum effects are infamously fragile when it comes to any outside interference such as measurements. The researchers note they overcame this apparent contradiction by engineering interactions within their device to be strong enough to enable memristivity but weak enough to preserve quantum behavior.
+
+Using computer simulations, the researchers suggest quantum memristors could lead to an exponential growth in performance in a machine-learning approach known as reservoir computing that excels at learning quickly. Potentially, quantum reservoir computing may have a quantum advantage over classical reservoir computing, Spagnolo says.
+
+The advantage of using a quantum memristor in quantum machine learning as opposed to conventional quantum circuits is the fact that the memristor, unlike any other quantum component, has memory, Spagnolo says.
+
+The next step in this work is to connect several memristors together, Spagnolo notes. Future research can also scale up by increasing the number of photons in each memristor and the number of states in which they can exist within each device, he adds.

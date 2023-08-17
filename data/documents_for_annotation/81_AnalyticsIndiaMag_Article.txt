@@ -1,0 +1,51 @@
+PUBLISHED ON NOVEMBER 9, 2021
+IN OPINIONS
+Version 3 Of StyleGAN Released: Major Updates & Features
+StyleGAN3 is fully equivariant in translation and rotation, which significantly improves the production of GAN-based animations.
+By Dr. Nivash Jeevanandam
+
+
+NVIDIA has released the source code for StyleGAN3, a machine learning system that uses generative adversarial networks (GANs) to create realistic images of human faces. 
+
+The initial release of StyleGAN technology in 2019, followed by an enhanced version of StyleGAN2 in 2020, enhances image quality and eliminates artefacts. Simultaneously, the system remained motionless, preventing natural motions and face movements. Therefore, the primary objective in developing StyleGAN3 was to adapt the technology in animation and video.
+
+With StyleGAN3, whats new
+GANs have amazed the general audience and computer vision researchers. As a result, the researchers have progressively integrated GANs into applications such as domain translation, advanced image editing, and video production. However, according to the study published by NVIDIA and Finlands Aalto University, current GAN architectures do not create images in a natural hierarchical manner. As a result of the lack of attention paid to signal processing in 2020s StyleGAN2, the team set out to design StyleGAN3, a system with a more organic transformation hierarchy.
+
+Hierarchical transformations are common in the real world. For example, sub-features such as the hair and nose will move in response to a persons head-turning. A typical GAN generator has a similar structure: coarse, low-resolution features are hierarchically corrected by upsampling layers, locally blended by convolutions, and new detail is provided through nonlinearities.
+
+Existing GAN Designs
+According to the researchers, current GAN designs do not create images naturally, despite their superficial similarities. The coarse features primarily determine the appearance of finer features, but not their specific placements. As a result, an alarming phenomenon is known as texture clinging can be seen in the minute details. StyleGAN3 may achieve a more natural transformation hierarchy because the precise sub-pixel location of each feature is only inherited from the coarse features.
+
+
+Source: Alias-Free Generative Adversarial Networks
+
+After examining every aspect of the StyleGAN2 generators signal processing, finally, the StyleGAN2 team discovered that current upsampling filters are not forceful enough in reducing unwanted aliases. Furthermore, the model is forced to demonstrate a more natural hierarchical refinement. As a result, it is possible to improve the quality of generated video and animation significantly.
+
+
+Source: Alias-Free Generative Adversarial Networks
+
+Datasets
+Using StyleGAN2 and their alias-free StyleGAN3-T and StyleGAN-R generator, the team evaluated their results on the following six datasets. 
+
+FFHQ-U, 
+FFHQ, 
+METFACES-U, 
+METFACES, 
+AFHQV2, and 
+BEACHES. 
+Even though StyleGAN2s Frchet Inception Distance (FID) image quality metric has been surpassed by StyleGAN3, StyleGAN3-T (and StyleGAN3-R) remain competitive with StyleGAN2.
+
+As a result of the impressive visual flow, Google Brain Scientist David Ha tweeted, These models are getting so good
+
+
+The following are the new feature enhancements:
+
+Generator architecture and training configurations without aliases (StyleGAN3-T, StyleGAN3-R).
+Visualisation tools (visualizer.py), spectrum analysis tools (avg spectra.py), and video generating tools (gen video.py).
+Metrics of equivariance (eqt50k int, eqt50k frac, eqr50k).
+Improvements to the overall user experience: lower memory utilisation, somewhat faster training, and bug fixes.
+Conclusion
+According to the researchers, it may be worthwhile in the future to reintroduce noise inputs (stochastic variation) in a manner consistent with hierarchical synthesis. In addition, extending the technique to include equivariance for scaling, anisotropic scaling, and even arbitrary homeomorphisms may be worthwhile. Finally, it is commonly accepted that StyleGAN3 should perform antialiasing before tone mapping. Until now, all GANs, including StyleGAN3, have functioned within the sRGB colour space (after tone mapping).
+
+The team hopes their approach will open the way to develop new generative models that are more suited to video and animation jobs.

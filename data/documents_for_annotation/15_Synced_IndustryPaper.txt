@@ -1,0 +1,35 @@
+DeepMinds Flamingo Visual Language Model Demonstrates SOTA Few-Shot Multimodal Learning Capabilities
+In the new paper Flamingo: a Visual Language Model for Few-Shot Learning, a DeepMind research team presents Flamingo, a novel family of visual language models (VLMs) that can handle multimodal tasks such as captioning, visual dialogue, classification and visual question answering when given only a few input/output samples.
+
+
+BY SYNCED
+2022-05-04
+COMMENT 1
+It is believed that few-shot learning capabilities, which enable machine learning models to be adapted to new tasks given only a few instructions, will be a key aspect of next-generation artificial intelligence systems. While few-shot learning has become a popular research focus in recent years, it remains particularly challenging in multimodal tasks such as those tackled by visual language models (VLMs).
+
+In the new paper Flamingo: a Visual Language Model for Few-Shot Learning, a DeepMind research team presents Flamingo, a novel family of visual language models (VLMs) that can handle multimodal tasks such as captioning, visual dialogue, classification and visual question answering when given only a few input/output samples.
+
+
+The team summarizes the main contributions of their proposed Flamingo framework as follows:
+
+A novel architecture for accepting arbitrarily interleaved visual data and text as input and generating output text in an open-ended manner.
+Architectural innovations and training strategies that effectively leverage large pretrained vision-only and language-only models, preserving the benefits of these initial models while efficiently fusing the modalities. Starting from Chinchilla, a 70B state-of-the-art LM (Hoffmann et al., 2022), we train Flamingo, an 80B parameter VLM.
+Efficient ways to adapt to visual inputs of varying sizes, making Flamingo applicable to images and videos.
+Flamingo takes text interleaved with images/videos as input and outputs free-form text. It is sufficiently expressive to tackle both open-ended tasks that require generating texts (e.g. visual question-answering and captioning) and close-ended classification tasks (e.g. choosing the best category or answer from amongst a set).
+
+
+For Flamingos visual processing side, the team pretrains a vision encoder via a contrastive text-image approach in the style of CLIP (Radford et al., 2021), which extracts relevant semantic spatial features (colour, shape, nature, positions of objects, etc.) from the visual data. The models language side meanwhile leverages an existing pretrained autoregressive language model (LM) to equip Flamingo with strong generative language abilities and provide access to the rich knowledge stored in the LMs weights.
+
+
+
+The researchers also introduce two learnable architecture components  a Perceiver Resampler, and cross attention layers  to harmoniously bridge the pretrained vision and language models. The Perceiver Resampler accepts spatio-temporal features from the vision encoder and outputs a set of visual tokens. These visual tokens are then used to condition the frozen LM via freshly initialized cross attention layers between the pretrained LM layers, enabling the model to merge visual information for the next-token prediction task.
+
+In their empirical study, the team evaluated the Flamingo models few-shot learning performance on 16 diverse multimodal language and image/video understanding tasks.
+
+
+
+In the evaluations, the proposed Flamingo models surpassed fine-tuned state-of-the-art baseline models such as CLIP and Florence on 6 of the 16 tasks while using only 32 task-specific examples  representing about 1000 times less task-specific training data than the baselines. When provided a larger annotation budget, a fine-tuned Flamingo also achieved new state-of-the-art results on five additional challenging benchmarks: VQAv2, VATEX, VizWiz, MSRVTTQA, and HatefulMemes.
+
+A Flamingo PyTorch implementation is available on the projects GitHub. The paper Flamingo: a Visual Language Model for Few-Shot Learning is on arXiv.
+
+Author: Hecate He | Editor: Michael Sarazen

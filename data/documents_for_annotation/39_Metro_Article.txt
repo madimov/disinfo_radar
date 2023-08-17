@@ -1,0 +1,33 @@
+Dall.E mini: The AI image generator everyones using to make wild memes
+Jeff Parsons
+Friday 10 Jun 2022 9:09 am
+Will computers eventually replace humans when it comes to producing fine art?
+
+Probably not. But when it comes to memes, our algorithmic counterparts are pulling ahead.
+
+Thats down to an image generator called Dall.E mini, which is taking social media by storm. Chances are youve already seen one of its weird memes on your socials already.
+
+If not, heres the breakdown:
+
+Dall.E mini (as in, Dali) is an image generator that uses artificial intelligence to make photos based on the text you put in. Its a totally free, online tool and you can find it here.
+
+So, you could put in, for example, Demi Moore eating a pomegranate and heres what youd get in return:
+Spooky, right?
+
+It works because the back end of the image generator is connected to an artificial intelligence that has, for some time, been scraping the web for images to learn what things are. Often it will draw this from the captions attached to the pictures.
+
+The algorithms inside the AI eventually find patterns within the images and can associate them with captions. Because it then knows what an image should look like, it can generate it from whatever captions the user puts in.
+
+
+As you can imagine, the internet loves it. Of course, its also the internet which means things can always take a turn. One image created using Dall.E mini combines a gender reveal and the tragedy of 9/11. It turns the smoke billowing from the Twin Towers a bright shade of blue and pink. Its not really funny or clever, but the internet has been sharing it nonetheless.
+
+Dall.E mini is based on GPT-3, a program devised by OpenAI, an artificial intelligence research and deployment company founded by Elon Musk.
+
+Without diving into the technical details, GPT-3 (which stands for generative pre-training) uses a vast data bank of English sentences and highly powerful computer models (called neural nets) to spot patterns and learn its own rules of how language operates (it has 175 billion rules of its own making).
+
+
+It sounds complicated (and it is), but GPT-3s size and nature makes it adaptable to all sorts of different tasks that involve any sort of language.
+
+So you can see how itd make the jump to meme generator by just applying the same principle to images.
+
+Will it replace actual artists? No, probably not. But it is likely to be behind a few wild memes you may see over the next few weeks.

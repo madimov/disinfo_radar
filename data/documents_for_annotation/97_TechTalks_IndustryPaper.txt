@@ -1,0 +1,58 @@
+Can large language models be democratized?
+By Ben Dickson -May 16, 2022
+5 min read
+
+In early May, Meta released Open Pretrained Transformer (OPT-175B), a large language model (LLM) that can perform various tasks. Large language models have become one of the hottest areas of research in artificial intelligence in the past few years.
+
+OPT-175B is the latest entrant in the LLM arms race triggered by OpenAIs GPT-3, a deep neural network with 175 billion parameters. GPT-3 showed that LLMs can perform many tasks without undergoing extra training and only seeing a few examples (zero- or few-shot learning). Microsoft later integrated GPT-3 into several of its products, showing not only the scientific but also the commercial promises of LLMs.
+
+What makes OPT-175B unique is Metas commitment to openness, as the models name implies. Meta has made the model available to the public (with some caveats). It has also released a ton of details about the training and development process. In a post published on the Meta AI blog, the company described its release of OPT-175B as Democratizing access to large-scale language models.
+
+Metas move toward transparency is commendable. However, the competition over large language models has reached a point where it can no longer be democratized.
+
+Looking inside large language models
+large language models
+Metas release of OPT-175B has some key features. It includes both pretrained models as well as the code needed to train and use the LLM. Pretrained models are especially useful for organizations that do not have the computational resources for training the model (training neural networks is much more resource-intensive than running them). It will also help reduce the massive carbon footprint caused by the computational resources needed to train large neural networks.
+
+Like GPT-3, OPT comes in different sizes, ranging from 125 million to 175 billion parameters (models with more parameters have more capacity for learning). At the time of this writing, all models up to OPT-30B are accessible for download. The full 175-billion-parameter model will be made available to select researchers and institutions that fill a request form.
+
+
+According to the Meta AI blog, To maintain integrity and prevent misuse, we are releasing our model under a noncommercial license to focus on research use cases. Access to the model will be granted to academic researchers; those affiliated with organizations in government, civil society, and academia; along with industry research laboratories around the world.
+
+In addition to the models, Meta has released a full logbook that provides a detailed technical timeline of the development and training process of large language models. Published papers usually only include information about the final model. The logbook gives valuable insights about how much compute was used to train OPT-175B and the human overhead required when underlying infrastructure or the training process itself becomes unstable at scale, according to Meta.
+
+Contrast with GPT-3
+microsoft openai gpt-3 license
+In its blog post, Meta states that large language models are mostly accessible through paid APIs and that restricted access to LLMs has limited researchers ability to understand how and why these large language models work, hindering progress on efforts to improve their robustness and mitigate known issues such as bias and toxicity.
+
+This is a jab at OpenAI (and by extension Microsoft), which released GPT-3 as a black-box API service instead of making its models weights and source code available to the public. Among the reasons OpenAI stated for not making GPT-3 public was controlling misuse and development of harmful applications.
+
+Meta believes that by making the models available to a wider audience, it will be in a better position to study and prevent any harm they can cause.
+
+Heres how Meta describes the effort: We hope that OPT-175B will bring more voices to the frontier of large language model creation, help the community collectively design responsible release strategies, and add an unprecedented level of transparency and openness to the development of large language models in the field.
+
+The costs of large language models
+However, it is worth noting that transparency and openness is not the equivalent of democratizing large language models. The costs of training, configuring, and running large language models remain prohibitive and are likely to grow in the future.
+
+According to Metas blog post, its researchers have managed to considerably reduce the costs of training large language models. The company says that the models carbon footprint has been reduced to a seventh of GPT-3. Experts I had previously spoken to estimated GPT-3s training costs to be up to $27.6 million.
+
+This means that OPT-175B will still cost several million dollars to train. Fortunately, the pretrained model will obviate the need to train the model, and Meta says it will provide the codebase used to train and deploy the full model using only 16 NVIDIA V100 GPUs. This is the equivalent of an Nvidia DGX-2, which costs about $400,000, not a small sum for a cash-constrained research lab or an individual researcher. (According to a paper that provides more details on OPT-175B, Meta trained their own model with 992 80GB A100 GPUs, which are significantly faster than the V100.)
+
+Meta AIs logbook further confirms that training large language models is a very complicated task. The timeline of OPT-175B is filled with server crashes, hardware failures, and other complications that require a highly technical staff. The researchers also had to restart the training process several times, tweak hyperparameters, and change loss functions. All of these incur extra costs that small labs cant afford.
+
+The (undemocratic) future of large language models
+tech giants artificial intelligence
+Language models such as OPT and GPT are based on the transformer architecture. One of the key features of transformers is their ability to process large sequential data (e.g., text) in parallel and at scale.
+
+In recent years, researchers have shown that by adding more layers and parameters to transformer models, they can improve their performance on language tasks. Some researchers believe that reaching higher levels of intelligence is only a scale problem. Accordingly, cash-rich research labs like Meta AI, DeepMind (owned by Alphabet), and OpenAI (backed by Microsoft) are moving toward creating larger and larger neural networks.
+
+
+Last year, Microsoft and Nvidia created a 530-billion parameter language model called Megatron-Turing (MT-NLG). Last month, Google introduced the Pathways Language Model (PaLM), an LLM with 540 billion parameters. And there are rumors that OpenAI will release GPT-4 in the next few months.
+
+However, larger neural networks also require larger financial and technical resources. And while larger language models will have new bells and whistles (and new failures), they will inevitably centralize power within the hands of a few wealthy companies by making it even harder for smaller research labs and independent researchers to work on large language models.
+
+On the commercial side, big tech companies will have an even greater advantage. Running large language models is very expensive and challenging. Companies like Google and Microsoft have special servers and processors that allow them to run these models at scale and in a profitable way. For smaller companies, the overhead of running their own version of an LLM like GPT-3 is too prohibitive. Just as most businesses use cloud hosting services instead of setting up their own servers and data centers, out-of-the-box systems like the GPT-3 API will gain more traction as large language models become more popular.
+
+This in turn will further centralize AI in the hands of big tech companies. More AI research labs will have to enter partnerships with big tech to fund their research. And this will give big tech more power to decide the future directions of AI research (which will probably be aligned with their financial interests). This can come at the cost of areas of research that do not have a short-term return on investment.
+
+The bottom line is that, while we celebrate Metas move to bring transparency to LLMs, lets not forget that the very nature of large language models is undemocratic and in favor of the very companies that are publicizing them.

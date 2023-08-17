@@ -1,0 +1,28 @@
+OpenAIs unCLIP Text-to-Image System Leverages Contrastive and Diffusion Models to Achieve SOTA Performance
+In the new paper Hierarchical Text-Conditional Image Generation with CLIP Latents, an OpenAI research team combines the advantages of contrastive and diffusion models for text-conditional image generation tasks. Their proposed unCLIP model improves image diversity with minimal loss in photorealism and caption similarity, and produces image quality comparable to the state-of-the-art text-to-image system GLIDE.
+
+
+BY SYNCED
+2022-04-13
+COMMENTS 0
+Contrastive vision-language models such as OpenAIs CLIP (Contrastive LanguageImage Pre-training, 2021) have garnered much attention in the computer vision research community thanks to their impressive capabilities in zero-shot learning and learning robust representations of images that capture both semantics and style. While fine-tuned CLIP models have achieved state-of-the-art performance on a wide range of vision and language tasks without directly optimizing for a given benchmark, recently emerged diffusion models have also shown their potential to push the state-of-the-art on image and video generation tasks.
+
+In the new paper Hierarchical Text-Conditional Image Generation with CLIP Latents, an OpenAI research team combines the advantages of both contrastive and diffusion models for text-conditional image generation tasks. Their proposed unCLIP (so-named as it generates images by inverting the CLIP image encoder) improves image diversity with minimal loss in photorealism and caption similarity, and produces image quality comparable to the state-of-the-art text-to-image system GLIDE.
+
+
+The paper details the CLIP training process, which enables learning a joint representation space for text and images. A text embedding is fed to an autoregressive or diffusion prior to generate an image embedding, which is later used to condition a diffusion decoder to output the final image. The entire generation process comprises two components: 1) The prior, which produces CLIP image embeddings conditioned on the caption inputs, and 2) A decoder that generates final images conditioned on the image embeddings and, optionally, text captions. In this setup, the decoder enables the inversion of images conditioned on their corresponding CLIP image embeddings, while the prior can learn a generative model of the image embeddings themselves.
+
+
+To enable high-resolution image generation, the team trains a pair of diffusion upsampler models to upsample images from 6464 to 256256 and then to 10241024. They also slightly corrupt the conditioning images during training to improve model robustness. To reduce the compute burden, training is done on random crops of images with only one-fourth the target size, and spatial convolutions are only used at inference time. The researchers also experiment with both autoregressive and diffusion prior model classes, finding that the latter are computationally more efficient and produce higher-quality samples. Finally, they combine the CLIP embedding decoder with their prior model to obtain a full generative model for images.
+
+
+
+In their empirical experiments, the team compared unCLIP to state-of-the-art text-to-image models such as DALL-E and GLIDE, with unCLIP achieving the best FID score (10.39) under a zero-shot setting. Human evaluators preferred unCLIPs images to GLIDEs approximately 57.0 percent of the time when judged on photorealism and 53.1 percent of the time for caption similarity. The proposed unCLIP also performed favourably on automated aesthetic quality evaluations involving artistic illustration and photograph generation.
+
+Overall, this work demonstrates that the proposed unCLIP can significantly improve generated-image diversity with minimal loss in photorealism and caption similarity.
+
+The researchers caution that advanced image generation models like unCLIP carry risks related to deceptive and otherwise harmful content as the technology matures, it leaves fewer traces and indicators that outputs are AI-generated, making it easier to mistake generated images for authentic ones and vice versa. OpenAIs new DALLE 2 Preview platform is the first deployment of an unCLIP model, and includes safety mitigation measures designed to prevent harmful (violent, hate, or adult) generations by removing explicit content from the training data and restricting image generation if system filters or human monitors identify text prompts or image uploads that may violate our policies.
+
+The paper Hierarchical Text-Conditional Image Generation with CLIP Latents is on OpenAI.
+
+Author: Hecate He | Editor: Michael Sarazen

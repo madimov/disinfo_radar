@@ -1,0 +1,91 @@
+Connor Shorten
+Dec 17, 2019
+8 min read
+
+StyleGAN2
+This article explores changes made in StyleGAN2 such as weight demodulation, path length regularization and removing progressive growing!
+The first version of the StyleGAN architecture yielded incredibly impressive results on the facial image dataset known as Flicker-Faces-HQ (FFHQ). The most impressive characteristic of these results, compared to early iterations of GANs such as Conditional GANs or DCGANs, is the high resolution (1024) of the generated images. In addition to resolution, GANs are compared along dimensions such as the diversity of images generated (avoiding mode collapse) and a suite of quantitative metrics comparing real and generated images such as FID, Inception Score, and Precision and Recall.
+
+
+Facial images generated from StyleGAN2
+Frechet Inception Distance (FID) is one of the most common automated metrics used to evaluate images sampled from generative models. This metric is based on comparing activations of a pre-trained classification network on real and generated images. The following tables show the progress of GANs over the last 2 years from StyleGAN to StyleGAN2 on this dataset and metric.
+
+
+FID results reported in the first edition of StyleGAN, A Style-Based Generator Architecture for Generative Adversarial Networks authored by Tero Karras, Samuli Laine, and Timo Aila. Note the FID scores on the right on the FFHQ dataset to compare with the StyleGAN2 resutls below.
+
+FID results reported in the second edition of StyleGAN, Analyzing and Improving the Image Quality of StyleGAN authored by Tero Karras, Samuli Laine, Miika Aittala, Janne Hellsten, Jaakko Lehtinen, and Timo Aila. Note the FID scores on the far left for the sake of comparison with StyleGAN1.
+This article will discuss the architectural changes that have improved the FID metric by ~3x, as well as qualitative improvements like the removal of artifacts in generated images and smooth latent space interpolations. Smoothness in the latent space results in small changes to the source of a generated image causing small perceptual changes to the resulting image, enabling amazing animations such as this. I have also made a video explaining changes in StyleGAN2 if you are interested:
+
+
+How to tell if an image was created by StyleGAN
+The first edition of StyleGAN produces amazingly realistic faces, from the test provided by whichfaceisreal.com below, can you tell which face is real?
+
+
+Do you think you could train yourself to achieve a perfect score on this game? Do you think you could train a neural network to do it? This is the idea behind the $1M Deepfake Detection challenge listed on Kaggle. The authors of whichfaceisreal.com detail a list of tell-tale artifacts that can be used to distinguish StyleGAN-generated images. One such artifact is the appearance of water droplet effects in the images. Awareness of this makes this game much easier (shown below).
+
+
+The authors of StyleGAN2 seek to remove these artifacts from generated images. They attribute the source of water droplets to restrictions on the generator imposed by the Adaptive Instance Normalization layers.
+
+Weight Demodulation
+NVIDIA researchers are masters of using normalization layers for image synthesis applications such as StyleGAN and GauGAN. StyleGAN uses adaptive instance normalization to control the influence of the source vector w on the resulting generated image. GauGAN uses a spatially adaptive denormalization layer to synthesize photorealistic images from doodle sketches. (shown below)
+
+
+Image taken from Semantic Image Synthesis with Spatially-Adaptive Normalization by Taesung Park, Ming-Yu Liu, Ting-Chun Wang, and Jun-Yan Zhu. An example showing the power of normalization layers for image synthesis applications.
+In the second version of StyleGAN, the authors restructure the use of Adaptive Instance Normalization to avoid these water droplet artifacts. Adaptive Instance Normalization is a normalization layer derived from research into achieving faster Neural Style Transfer. Neural Style Transfer demonstrates a remarkable disentanglement between low-level style features and high-level content features evident in Convolutional Neural Networks (shown below):
+
+
+Image above taken from Arbitrary Style Transfer in real-time with Adaptive Instance Normalization authored by Xun Huang and Serge Belongie
+However, Style Transfer (before Adaptive Instance Normalization) required a lengthy optimization process or pre-trained networks that are limited to a single style. AdaIN showed that the style and content could be combined through the sole use of normalization statistics. (an overview of this is shown below):
+
+
+Image above taken from Arbitrary Style Transfer in real-time with Adaptive Instance Normalization authored by Xun Huang and Serge Belongie
+The authors of StyleGAN2 explain that this kind of normalization discards information in feature maps encoded in the relative magnitudes of activations. The generator overcomes this restriction by sneaking information past these layers which result in these water-droplet artifacts. The authors share the same confusion as the reader as to why the discriminator is unable to distinguish images from this droplet effect.
+
+Adaptive Instance Normalization is reconstructed as Weight Demodulation in StyleGAN2. (this progression is shown below)
+
+
+Adaptive Instance Normalization (similar to other normalization layers like Batch Norm) scales and shifts the activations of intermediate activations. Whereas Batch Norm does this with learned mean and variance parameters computed from batch statistics, Instance Norm uses a single image compared to a batch. Adaptive Instance Norm uses different scale and shift parameters to align different areas of the source w with different regions of the feature map (either within each feature map or via grouping features channel-wise by spatial location).
+
+Weight demodulation takes the scale and shift parameters out of a sequential computation path, instead baking scaling into the parameters of convolutional layers. It looks to me like the shifting of values (done with (y) in AdaIN) is tasked to the noise map B.
+
+Moving the scaling parameters into the convolutional kernel weights enables this computation path to be more easily parallelized. This results in a 40% training speedup from 37 images per second to 61 images per second.
+
+Removing Progressive Growing
+The next artifact introduced in StyleGAN targeted in the second edition may also help you achieve good results on the whichfaceisreal.com Turing test. Described at 1:40 of their accompanying video, StyleGAN images have a strong location preference for facial image features like noses and eyes. The authors attribute this to progressive growing. Progressive growing describes the procedure of first tasking the GAN framework with low-resolution images such as 4 and scaling it up when a desirable convergence property has been hurdled at the lower scale.
+
+Although progressive growing may be a headache to implement, introducing hyperparameters with respect to fading in higher resolution layers and requiring a more complicated training loop, it is a very intuitive decomposition of the high resolution image synthesis problem. GANs are notoriously challenging to train and the conventional wisdom particularly behind generating something like a 1024 image is that the discriminator will easily distinguish real and fake images, resulting in the generator unable to learn anything during training.
+
+Another recent paper on GANs, Multi-Scale Gradients for Generative Adversarial Networks by Animesh Karnewar and Oliver Wang shows an interesting way to utilize multiple scale generation with a single end-to-end architecture. (shown below):
+
+
+Technique to avoid progressive growing from Multi-Scale Gradients for Generative Adversarial Networks by Animesh Karnewar and Oliver Wang
+Inspired by the MSG-GAN, the authors of StyleGAN2 design a new architecture to make use of multiple scales of image generation without explicitly requiring the model to do so. They do this via a resnet-style skip connection between lower resolution feature maps to the final generated image.
+
+
+StyleGAN2 architecture without progressive growing
+The authors show that similar to progressive growing, early iterations of training rely more so on the low frequency/resolution scales to produce the final output. The chart below shows how much each feature map contributes to the final output, computed by inspecting the skip connection additions. Inspection of this inspires the authors to scale up the network capacity so that the 1024x1024 scale contributes more to the final output.
+
+
+Path Length Regularization
+StyleGAN2 introduces a new normalization term to the loss to enforce smoother latent space interpolations. Latent space interpolation describes how changes in the source vector z results in changes to the generated images. This is done by adding the following loss term to the generator:
+
+
+The exact details of how this is implemented are outside of my understanding, but the high level idea seems to be that the Jacobian matrix maps small changes in w with changes in the resulting image (going from points in w space to 1024 images). This matrix is multiplied by a random image to avoid getting stuck in a local optima, and the l2 norm of this is multiplied by an exponential moving average of it. Hence, the larger the l2 norm of this, the more it increases the loss, causing the generator to play ball and keep the latent space smooth.
+
+Another interesting characteristic of this implementation is denoted as lazy regularization. Since computing this Jacobian matrix is computationally heavy, this normalization is only added to the loss every 16 steps compared to every step.
+
+This smooth latent space dramatically facilitates projecting images back into the latent space. This is done by taking a given image and optimizing for the source vector w that could produce it. This has been demonstrated in a lot of interesting twitter threads with researchers projecting images of themselves into the latent space of the StyleGAN2 trained on FFHQ:
+
+Some Twitter demonstrations of projection from Gene Kogan: (1, 2)
+
+There are a lot of interesting applications of projection into a perfectly smooth latent space. For example, animation workflows generally consist of sketching out high-level keyframes and then manually filling in the more fine-grained intermediate frames. Models like StyleGAN2 would allow you to project the high-level keyframes into the latent space and then search amongst paths between the two w vectors defined by the structure of the prior w~ p(w) until you find a satisfying transition.
+
+
+Say the source of the generated image, w is sampled from this spherical distribution (representing a 3D uniform distribution). You would then project the two keyframes into this sphere to find the vectors that generate each image respectively. There would then be many paths you could walk along between these points in the source distribution. A smooth latent space will ensure that these transitions are smooth as in the fine-grained intermediate points refined by human illustrators and animators.
+
+Deepfake Detection via Projection
+One application of projection would be to use it to find the source of a given generated image to tell if it is real or fake. The idea being that if it is fake, you can find the latent vector that produced it and if it is real, you cannot. I think this idea of projecting images back into the latent space is very interesting, but Im not sold on it as a deepfake detection technique. It seems impossible to keep a tab on all of the possible datasets people may have to train these models which would be the real contributor to the image being projected back into latent space. Additionally, I dont understand why the StyleGAN wouldnt be able to perfectly reconstruct the original training image, since this is really the core of the training objective.
+
+I think projection could be used in an interesting way with anomaly detection and lifelong learning. When a new example is misclassified, it could be reprojected back into the same dataset used to train the classifier and some kind of image similarity distance could be computed like l2 distance or pre-trained classifier features.
+
+Thanks for reading this overview of StyleGAN2!

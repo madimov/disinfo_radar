@@ -1,0 +1,71 @@
+DeepMind: Why is AI so good at language? It's something in language itself
+Written by Tiernan Ray, Contributing Writer on May 28, 2022
+Can the frequency of language, and qualities such as polysemy, affect whether a neural network can suddenly solve tasks for which it was not specifically developed, known as "few-shot learning"? DeepMind says yes.
+Tiernan Ray for ZDNet
+How is it that a program such as OpenAI's GPT-3 neural network can answer multiple choice questions, or write a poem in a particular style, despite never being programmed for those specific tasks?
+
+It may be because human language has statistical properties that lead a neural network to expect the unexpected, according to new research by DeepMind, the AI unit of Google.   
+
+ARTIFICIAL INTELLIGENCE
+DeepMind: Why is AI so good at language? It's something in language itself
+AI experts are in short supply. That's making the skills crisis worse
+I tried Google's AI job interview practice tool, and I want to cry
+The EU AI Act: What you need to know
+Natural language, when viewed from the point of view of statistics, has qualities that are "non-uniform," such as words that can stand for multiple things, known as "polysemy," like the word "bank," meaning a place where you put money or a rising mound of earth. And words that sound the same can stand for different things, known as homonyms, like "here" and "hear." 
+
+Those qualities of language are the focus of a paper posted on arXiv this month, "Data Distributional Properties Drive Emergent Few-Shot Learning in Transformers," by DeepMind scientists Stephanie C.Y. Chan, Adam Santoro, Andrew K. Lampinen, Jane X. Wang, Aaditya Singh, Pierre H. Richemond, Jay McClelland, and Felix Hill.
+
+Also: What is GPT-3? Everything you need to know about OpenAI's breakthrough AI language program
+
+The authors started by asking how programs such as GPT-3 can solve tasks where they are presented with kinds of queries for which they have not been explicitly trained, what is known as "few-shot learning." 
+
+For example, GPT-3 can answer multiple choice questions without ever having been explicitly programmed to answer such a form of a question, simply by being prompted by a human user typing an example of a multiple choice question and answer pair. 
+
+"Large transformer-based language models are able to perform few-shot learning (also known as in-context learning), without having been explicitly trained for it," they write, referring to the wildly popular "Transformer" neural net from Google that is the basis of GPT-3 and Google's BERT language program. 
+
+
+As they explain, "We hypothesized that specific distributional properties of natural language might drive this emergent phenomenon."
+
+The authors speculate that such large language model programs are behaving like another kind of machine learning program, known as meta-learning. Meta-learning programs, which have been explored by DeepMind in recent years, function by being able to model patterns of data that span different data sets. Such programs are trained to model not a single data distribution but a distribution of data sets, as explained in prior research by team member Adam Santoro.
+
+Also: OpenAI's gigantic GPT-3 hints at the limits of language models for AI
+
+The key here is the idea of different data sets. All the non-uniformities of language, they conjecture, such as polysemy and the "long tail," of language, the fact that speech contains words used with relatively little frequency  each of these strange facts of language are akin to separate data distributions. 
+
+In fact, language, they write, is like something between supervised training data, with regular patterns, and meta-learning with lots of different data:
+
+As in supervised training, items (words) do recur, and item-label mappings (e.g. word meanings) are somewhat fixed. At the same time, the long-tailed distribution ensures that there exist many rare words that recur only infrequently across context windows, but may be bursty (appear multiple times) within context windows. We can also see synonyms, homonyms, and polysemy as weaker versions of the completely unfixed item-label mappings that are used in few-shot meta-training, where the mappings change on every episode.
+
+To test the hypothesis, Chan and colleagues, surprisingly, do not actually work with language tasks. Instead, they train a Transformer neural net to solve a visual task, called Omniglot, introduced in 2016 by NYU, Carnegie Mellon, and MIT scholars. Omniglot challenges a program to assign the right classification label to 1,623 handwritten character glyphs.
+
+
+deepmind-omniglot-modified-challenge-may-2022.jpg
+In the case of Chan et al.'s work, they turn the labeled Omniglot challenge into a one-shot task by randomly shuffling the labels of the glyphs, so that the neural net is learning with each "episode":
+
+Unlike in training, where the labels were fixed across all sequences, the labels for these two image classes were randomly re-assigned for each sequence [] Because the labels were randomly re-assigned for each sequence, the model must use the context in the current sequence in order to make a label prediction for the query image (a 2-way classification problem). Unless stated otherwise, few-shot learning was always evaluated on holdout image classes that were never seen in training.
+
+In this way, the authors are manipulating visual data, the glyphs, to capture the non-uniform qualities of language. "At training time, we situate the Omniglot images and labels in sequences with various language-inspired distributional properties," they write. For example, they gradually turn up the number of class labels that can be assigned to a given glyph, to approximate the quality of polysemy.  
+
+"At evaluation, we then assess whether these properties give rise to few-shot learning abilities."
+
+What they found is that as they multiply the number of labels for a given glyph, the neural network got better at performing few-shot learning. "We see that increasing this 'polysemy factor' (the number of labels assigned to each word) also increases few-shot learning," as Chan and colleagues put it. 
+
+"In other words, making the generalization problem harder actually made few-shot learning emerge more strongly."
+
+At the same time, it is not only the data distribution that is causing the few-shot performance, they conclude. There is something about the specific structure of the Transformer neural network that helps it achieve few-shot learning, Chan and colleagues find. They test "a vanilla recurrent neural network," they write, and find that such a network never achieves a few-shot ability. 
+
+
+"Transformers show a significantly greater bias towards few-shot learning than recurrent models."
+
+The authors conclude that both the qualities of the data, such as language's long tail, and the nature of the neural net, such as Transformer structure, matter. It's not one or the other but both. 
+
+The authors enumerate a number of avenues to explore in the future. One is the connection to human cognition since babies demonstrate what appears to be few-shot learning.
+
+For example, infants rapidly learn the statistical properties of language. Could these distributional features help infants acquire the ability for rapid learning, or serve as useful pre-training for later learning? And could similar non-uniform distributions in other domains of experience, such as vision, also play a role in this development?
+
+It should be apparent that the current work is not a test of language at all. Rather, it aims to emulate the supposed statistical properties of language by recreating non-uniformities in visual data, the Omniglot images.
+
+The authors don't explain whether that translation from one modality to another has any effect on the significance of their work. Instead, they write that they expect to extend their work to more aspects of language. 
+
+
+"The above results suggest exciting lines of future research," they write, including, "How do these data distributional properties interact with reinforcement learning vs. supervised losses? How might results differ in experiments that replicate other aspects of language and language modeling, e.g. using symbolic inputs, training on next-token or masked-token prediction, and having the meaning of words determined by their context?"

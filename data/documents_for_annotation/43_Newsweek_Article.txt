@@ -1,0 +1,52 @@
+ON THE INTERNET
+Dall-E Mini App Sparks New Internet Picture Trend
+BY JACK BERESFORD ON 6/8/22 AT 11:12 AM EDT
+
+Have you ever wondered what a Picasso painting of Donald Trump might have looked like? How about an Edward Hopper portrait of the current President Joe Biden?
+
+As crazy as it might sound, you don't need to wonder any more.
+
+That's because Dall-E Mini, a groundbreaking text-to-image AI app, is making what was once the stuff of dreams, a digital reality.
+
+
+It could not be simpler to use either. Just head to the website here and type in a phrase describing what you want to see. Hit "enter" and after a few seconds you'll be presented with a grid of nine different pictures matching your request.
+Some of the attempts may come off better than others, while certain phrases and types of requests appear to deliver better results.
+
+
+For example, asking for a particular person to be painted in the style of a noted artist, more often than not, delivers the desired results.
+
+While AI tools of this kind have existed previously, this is the first to be put into the public sphere and it has proven a hit on social media.
+
+Highlights so far have included a painting of Gordon Ramsay eating a McDonald's Big Mac.
+
+
+Kermit the Frog as if painted by Edvard Munch.
+
+
+
+Darth Vader playing a guitar.
+
+
+Super Mario and Sonic the Hedgehog at a Pride Parade.
+
+
+
+And Bruce Willis eating a yoghurt.
+
+
+
+It's the brainchild of Normandy programmer Boris Dayma, who developed the app from his current base in Houston, Texas, as part of an AI computing competition run by Hugging Face and Google in July 2021.
+
+Speaking to The I, Dayma acknowledged that the app works better with "abstract painting" but struggles with more precise images.
+
+"The hardest part is definitely people," he explained. "If you draw a landscape with Dall-E, it's amazing, because if there's a small problem with a tree, nobody notices it and the landscape still looks great.
+
+
+"But if there's a problem with a face, we notice it. If there's a small flaw with an eye, we can see it. With an avocado, even if it has flaws, it's good enough."
+
+That difference is highlighted in Newsweek's own attempt, with the more abstract Picasso-inspired Trump images appearing more polished than the Hopper-style Biden portraits.
+
+
+Despite such minor flaws, the system is providing endless hours of entertainment on social media and represents a significant first step into an exciting new realm in online creativity.
+
+Newsweek has contacted Dayma for comment.

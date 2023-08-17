@@ -1,0 +1,32 @@
+Big banks will blaze the enterprise GPT-3 AI trail
+Massive language models will be big businesses in decade ahead
+Nicole Hemsoth	Wed 23 Feb 2022 // 15:00 UTC
+6 comment bubble on white
+
+It is hard to ignore the buzz around massive language models like GPT-3. These are not your typical natural language processing (NLP) engines that power enterprise chatbots or call centers. This is a dramatic step forward, one that makes traditional NLP output look like a simple parroting back of trained answers.
+
+GPT-3 can generate its own articles. It can provide nuanced summaries across millions of words of text. And since code is essentially language, there are now GPT-3-created software elements, including fully developed applications. It is the closest thing we have to date that resembles the "all-knowing supercomputer" trope from mid-20th century science fiction: the thing one could actually pose a verbal question to and receive a nuanced answer.
+
+So here is the third time you'll see the word "nuanced" because that is where the power lies for companies that can actually get access to GPT-3 and massive training compute power. It is, after all, not unreasonable to see billion-dollar model training efforts on the horizon.
+
+Other than Meta and Google and the social giants, production GPT-3 will likely catch on first where the users can afford this kind of return on investment (RoI). Healthcare might seem like a natural first option but the regulatory environment isn't too keen on black-box technologies. The financial services segment is where we will likely see it first, at least in consumer-facing enterprise.
+
+The use cases for GPT-3 in financial services are broad and already encompassed in specific machine-learning packages. For instance, sentiment analysis (using social media and articles to capture the temperature of the market), entity recognition (classification of documents), and translation are all widely available and used.
+
+Where GPT-3 will likely come into play for banks is in language generation  the ability to handle claims and fill information into forms, for example. This might be a small, consumer-focused start, but with enough training data, GPT-3 could start taking an active role in risk management and investment decisions.
+
+Getting a handle on the current return on RoI for this tech in banking is difficult. These ML elements exist, but as data volumes grow, the need for massive industry and even bank-specific trained models is clearer. One big problem for financial institutions able to access the model (OpenAI is less closed these days but GPT-3 is limited in terms of pre-training, downstream task fine-tuning, plus no industry-specific corpus) is finding the people to make it all work.
+
+Yes, the irony is that something designed to replace people is slow catching on because of a lack of people. This is why, like so many others in enterprise IT, managed service use cases abound. It is harder than ever to find and keep talent, especially for specific AI/ML financial services programs. Further, it is no small undertaking to have a banking-specific corpus pre-trained and ready to roll along with the right-sized system and software.
+
+IRS doesn't completely scrap facial recognition, just makes it optional
+AI really can't copyright the art it generates  US officials
+Microsoft details 'planet-scale' AI infrastructure packing 100,000-plus GPUs
+AI-created faces now look so real, humans can't spot the difference
+GPT-3 models have been available to a select few since mid-2020 via OpenAI and the only licensee is Microsoft. This did not start off as an AI framework that the general public can just snatch up and work with, which is why the first systems makers to get it tuned with their machines and software stacks have a leg up. It reduces the hiring problem in AI and puts all the tools in reach. Few companies, however, are doing this.
+
+AI systems maker SambaNova was among the first to be able to provide GPT-3 as a pre-packaged service earlier this year so enterprises could start digging into building and using large language models. Among their target markets is financial services, a segment that can put GPT-3 capabilities to work by meshing data to feed hedge fund and risk decision-making, for instance. The one public user of their GPT Banking platform, OTP Bank in Hungary, is still kicking the tires with a prototype deployment.
+
+It might be that the big banks exploring GPT-3 at scale will tread carefully in terms of investment. SambaNova's SVP of product told The Register that deployments can be a hybrid on-prem cloud (the right-sized hardware behind the firewall, owned and managed by SambaNova and accessed via their APIs) or they can use it as a CSP.
+
+Either way, it's a subscription service, which, at this point in the GPT-3 RoI reckoning, means it might only be the financial industry that gets a sense of whether the hype is well placed for GPT-3 at scale in enterprise.

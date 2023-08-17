@@ -1,0 +1,31 @@
+AI MACHINE LEARNING & DATA SCIENCE NATURE LANGUAGE TECH RESEARCH
+Googles Imagen Text-to-Image Diffusion Model With Deep Language Understanding Defeats DALL-E 2
+In the new paper Photorealistic Text-to-Image Diffusion Models with Deep Language Understanding, a Google Brain research team presents Imagen, a text-to-image diffusion model that combines deep language understanding and photorealistic image generation capabilities to achieve a new state-of-the-art FID score of 7.27 on the COCO dataset.
+
+BY SYNCED
+2022-06-01
+
+Text-to-image diffusion models that can generate and edit photorealistic images have become a hot AI research area, with their incredible synthetic images garnering widespread mainstream media coverage. An advanced image generation approach, diffusion models have surpassed previous high-performance methods such as GANs (generative adversarial networks) in both image fidelity and diversity and are now demonstrating their potential in text-to-image generation.
+
+In the new paper Photorealistic Text-to-Image Diffusion Models with Deep Language Understanding, a Google Brain research team advances this research field with Imagen, a text-to-image diffusion model that combines the deep language understanding of transformer-based large language models and the photorealistic image generation capabilities of diffusion models to achieve a new state-of-the-art FID score of 7.27 on the COCO dataset.
+
+The team summarizes their papers main contributions as:
+
+We discover that large frozen language models trained only on text data are surprisingly very effective text encoders for text-to-image generation and that scaling the size of the frozen text encoder improves sample quality significantly more than scaling the size of the image diffusion model.
+We introduce dynamic thresholding, a new diffusion sampling technique to leverage high guidance weights and generate more photorealistic and detailed images than previously possible.
+We highlight several important diffusion architecture design choices and propose Efficient U-Net, a new architecture variant that is simpler, converges faster, and is more memory efficient.
+We achieve a new state-of-the-art COCO FID of 7.27. Human raters find Imagen to be on-par with the reference images in terms of image-text alignment.
+
+We introduce DrawBench, a new comprehensive and challenging evaluation benchmark for the text-to-image task. On DrawBench human evaluation, we find Imagen outperforms all other work, including the concurrent work of DALL-E 2.
+
+Imagens training data was drawn from massive datasets of image and English alt-text pairs. Like previous text-to-image models, Imagens wow factor lies in its ability to generate photorealistic and high-resolution images from fanciful prompts such as A cute corgi lives in a house made out of sushi or A dragon fruit wearing a karate belt in the snow.
+
+The Imagen architecture comprises a text encoder that maps input text to a sequence of embeddings and a cascade of conditional diffusion models that map these embeddings to images of increasing resolutions. For their 6464 base model, the team modifies a U-Net architecture (Nichol et al., 2021) to improve memory efficiency, inference time and convergence speed in their resulting Efficient U-Net. Two text-conditional super-resolution diffusion models are then used to upsample the 6464 images to 256256 and 10241024.
+
+The team evaluated Imagen on the COCO validation dataset, where it achieved a new state-of-the-art FID score of 7.27, surpassing OpenAIs recently released DALL-E 2 text-to-image powerhouse. Human evaluators meanwhile rated Imagens outputs as on par with the COCO data itself in image-text alignment. The team also created DrawBench, a benchmark with prompts designed to test text-to-image models semantic properties. In the DrawBench-based evaluations, human raters preferred Imagen outputs against those of VQ-GAN+CLIP, Latent Diffusion Models, GLIDE and DALL-E 2 in side-by-side comparisons in terms of sample quality and image-text alignment.
+
+Overall, Imagens state-of-the-art performance demonstrates the strong potential of pretrained language models as text encoders for text-to-image generation with diffusion models. Although Google Brain has elected not to publicly release the Imagen code at this time (citing possible negative consequences due to encoded social and cultural biases and stereotypes), the team hopes their work can motivate future research on even bigger language models as text encoders.
+
+The paper Photorealistic Text-to-Image Diffusion Models with Deep Language Understanding is on arXiv.
+
+Author: Hecate He | Editor: Michael Sarazen

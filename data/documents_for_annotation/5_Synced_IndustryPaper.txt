@@ -1,0 +1,22 @@
+MACHINE LEARNING & DATA SCIENCE NATURE LANGUAGE TECH POPULAR RESEARCH
+
+For Its Latest Trick, OpenAIs GPT-3 Generates Images From Text Captions
+
+OpenAI has trained a neural network called DALLE that creates images from text captions for a wide range of concepts expressible in natural language.
+
+In the latest demonstration of popular large language model GPT-3s power and potential, OpenAI researchers today unveiled DALLE, a neural network trained to create images from text captions across a wide range of concepts expressible in natural language.
+
+OpenAIs GPT-3, released last June, showed that natural language inputs could be used to instruct a large neural network to perform a variety of text generation tasks. The same month, the companys ImageGPT research showed that similar neural networks could generate high-fidelity images.
+
+To start the new year, OpenAIs DALL-E builds on this, to show that manipulating visual concepts through language is now within reach.
+
+Deriving its name from a portmanteau of artist Salvador Dal and Pixars WALLE, DALLE is a 12-billion parameter version of GPT-3 trained to generate images from text descriptions using a dataset of textimage pairs. DALLE boasts a diverse set of capabilities, such as creating anthropomorphized versions of animals and objects, combining unrelated concepts in plausible ways, rendering text and applying transformations to existing images.
+
+A transformer-based language model, DALLEs vocabulary has tokens for both text and image concepts. It receives both text and images as a single stream of data containing up to 1280 tokens, and is trained using maximum likelihood to sequentially generate tokens to generate images from scratch. It can also regenerate regions of existing images in a manner consistent with the text prompt.
+
+OpenAI today also introduced CLIP (Contrastive LanguageImage Pretraining), a neural network that efficiently learns visual concepts from natural language supervision. The researchers say CLIP can be applied to any visual classification benchmark by simply providing the names of the visual categories to be recognized, which is similar to the zero-shot capabilities of GPT-2 and -3.
+
+Trained on a wide variety of images with a wide variety of natural language supervision abundantly available on the Internet, the network can be instructed in natural language to perform a variety of classification benchmarks without directly optimizing for each benchmarks performance.
+
+
+CLIP is able to learn from unfiltered, highly varied, and highly noisy data, and CLIP models are significantly more flexible and general than existing ImageNet models, the researchers say. The results from their tests with CLIP show that agnostic pretraining on Internet-scale natural language  which has powered recent breakthroughs in NLP  can also be leveraged to improve the performance of deep learning in fields such as computer vision.

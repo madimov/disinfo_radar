@@ -1,0 +1,35 @@
+OpenAI Releases GLIDE: A Scaled-Down Text-to-Image Model That Rivals DALL-E Performance
+An OpenAI research team proposes GLIDE (Guided Language-to-Image Diffusion for Generation and Editing) for high-quality synthetic image generation. Human evaluators prefer GLIDE samples over DALL-Es, and the model size is much smaller (3.5 billion vs. 12 billion parameters).
+
+BY SYNCED
+2021-12-24
+
+Text-to-image generation has been one of the most active and exciting AI fields of 2021. In January, OpenAI introduced DALL-E, a 12-billion parameter version of the companys GPT-3 transformer language model designed to generate photorealistic images using text captions as prompts. An instant hit in the AI community, DALL-Es stunning performance also attracted widespread mainstream media coverage. Last month, tech giant NVIDIA released the GAN-based GauGAN2  the name taking inspiration from French Post-Impressionist painter Paul Gauguin as DALL-E had from Surrealist artist Salvador Dali.
+
+Not to be outdone, OpenAI researchers this week presented GLIDE (Guided Language-to-Image Diffusion for Generation and Editing), a diffusion model that achieves performance competitive with DALL-E while using less than one-third of the parameters.
+
+While most images can be relatively easily described in words, generating images from text inputs requires specialized skills and many hours of labour. Enabling an AI agent to automatically generate photorealistic images from natural language prompts not only empowers humans with the ability to create rich and diverse visual content with unprecedented ease, it also enables easier iterative refinement and fine-grained control of the generated images.
+
+Recent studies have shown that likelihood-based diffusion models also have the ability to generate high-quality synthetic images, especially when paired with a guidance technique designed to trade-off diversity for fidelity. In May, OpenAI introduced a guided diffusion model that enables diffusion models to condition on a classifiers labels.
+
+GLIDE builds on this progress, applying guided diffusion to the challenge of text-conditional image synthesis. After training a 3.5 billion parameter GLIDE diffusion model that uses a text encoder to condition on natural language descriptions, the researchers compared two different guidance strategies: CLIP guidance and classifier-free guidance.
+
+CLIP (Radford et al., 2021) is a scalable approach for learning joint representations between text and images that provides a score reflecting how close an image is to a caption. The team applied this method to their diffusion models by replacing the classifier with a CLIP model that guides the models.
+
+Classifier-free guidance meanwhile is a technique for guiding diffusion models that does not require training a separate classifier. It has two appealing properties: 1) Enabling a single model to leverage its own knowledge during guidance, rather than relying on the knowledge of a separate classification model; 2) Simplifying guidance when conditioning on information that is difficult to predict with a classifier.
+
+The researchers observed that classifier-free guidance image outputs were preferred by human evaluators for both photorealism and caption similarity.
+
+In tests, GLIDE produced high-quality images with realistic shadows, reflections, and textures. The model can also combine multiple concepts (for example, corgis, bow ties, and birthday hats) while binding attributes such as colours to these objects.
+
+In addition to generating images from text, GLIDE can also be used to edit existing images  inserting new objects, adding shadows and reflections, performing image inpainting, etc.  via natural language text prompts.
+
+GLIDE can also transform simple line sketches into photorealistic images, and its zero-sample generation and repair capability for complex scenarios is strong.
+
+In comparisons with DALL-E, GLIDEs output images were preferred by human evaluators, even though it is a much smaller model (3.5 billion vs. 12 billion parameters), requires less sampling latency, and does not require CLIP reordering.
+
+The team is aware their model could make it easier for malicious players to produce convincing disinformation or deepfakes. To safeguard against such use cases, they have only released a smaller diffusion model and a noised CLIP model trained on filtered datasets. The code and weights for these models are available on the projects GitHub.
+
+The paper GLIDE: Towards Photorealistic Image Generation and Editing with Text-Guided Diffusion Models is on arXiv.
+
+Author: Hecate He | Editor: Michael Sarazen

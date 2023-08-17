@@ -1,0 +1,28 @@
+Photonic Chip Performs Image Recognition at the Speed of Light New photonic deep neural network could also analyze audio, video, and other data
+CHARLES Q. CHOI 06 JUN 2022
+Deep neural networks that mimic the workings of the human brain now often power computer vision, speech recognition, and much more. However, they are increasingly limited by the hardware used to implement them. Now scientists have developed a deep neural network on a photonic microchip that can classify images in less than a nanosecond, roughly the same amount of time as a single tick of the kind of clocks found in state-of-the-art electronics.
+
+In artificial neural networks, components dubbed neurons are fed data and cooperate to solve a problem, such as recognizing faces. The neural net repeatedly adjusts the links between its neurons and sees if the resulting patterns of behavior are better at finding a solution. Over time, the network discovers which patterns are best at computing results. It then adopts these as defaults, mimicking the process of learning in the human brain. A neural network is called deep if it possesses multiple layers of neurons.
+
+Although these artificial-intelligence systems are increasingly finding real-world applications, they face a number of major challenges given the hardware used to run them. First, they are usually implemented using digital-clock-based platforms such as graphics processing units (GPUs), which limits their computation speed to the frequencies of the clocksless than 3 gigahertz for most state-of-the-art GPUs. Second, unlike biological neuronswhich can both compute and store dataconventional electronics separate memory and processing units. Shuttling data back and forth between these components wastes both time and energy.
+
+In addition, raw visual data usually needs to be converted to digital electronic signals, consuming time. Moreover, a large memory unit is often needed to store images and videos, raising potential privacy concerns.
+
+
+In a new study, researchers have developed a photonic deep neural network that can directly analyze images without the need for a clock, sensor, or large memory modules. It can classify an image in less than 570 picoseconds, which is comparable with a single clock cycle in state-of-the-art microchips.
+
+It can classify nearly 2 billion images per second, says study senior author Firooz Aflatouni, an electrical engineer at the University of Pennsylvania, in Philadelphia. As a point of reference, the conventional video frame rate is 24 to 120 frames per second.
+
+The new device marks the first deep neural network implemented entirely on an integrated photonic device in a scalable manner. The entire chip is just 9.3 square millimeters in size.
+
+An image of interest is projected onto a 5-by-6 pixel array and divided into four overlapping 3-by-4 pixel subimages. Optical channels, or waveguides, then route the pixels of each subimage to the devices nine neurons.
+
+When the microchip is getting trained to recognize an image, for example, as one letter or another, an electrically controlled device adjusts how each neuron modifies the power of incoming light signals. By analyzing how the light from the image gets modified after passing through the microchips layers of neurons, one can read the microchips results.
+
+Computation-by-propagation, where the computation takes place as the wave propagates through a medium, can perform computation at the speed of light, Aflatouni says.
+
+The scientists had their microchip identify handwritten letters. In one set of tests, it had to classify 216 letters as either p or d, and in another, it had to classify 432 letters as either p, d, a, or t. The chip showed accuracies higher than 93.8 and 89.8 percent, respectively. In comparison, a 190-neuron conventional deep neural network implemented in Python using the Keras library achieved 96 percent accuracy on the same images.
+
+The researchers are now experimenting with classifying video and 3D objects with these devices, as well as using larger chips with more pixels and neurons to classify higher-resolution images. In addition, the applications of this technology are not limited to image and video classification, Aflatouni says. Any signal such as audio and speech that could be converted to the optical domain can be classified almost instantaneously using this technology.
+
+The scientists detailed their findings 1 June in the journal Nature.

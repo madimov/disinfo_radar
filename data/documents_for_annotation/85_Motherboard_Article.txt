@@ -1,0 +1,192 @@
+It Takes 2 Clicks to Get From Deep Tom Cruise to Vile Deepfake Porn
+The ethical AI company that made the viral deepfake of Tom Cruise is tied to non-consensual AI-generated porn.
+Emanuel Maiberg
+By Emanuel Maiberg
+May 17, 2022, 3:00pm
+
+Last year, a shockingly convincing deepfake video of Tom Cruise went viral on TikTok, quickly gaining more than 100 million views. The virality of "DeepTomCruise'' led the videos creator, Chris Um, to cofound an ethical AI-generated content company called Metaphysic, which raised $7.5 million from Logan Paul, Winklevoss Capital, and other venture capital firms. 
+
+ADVERTISEMENT
+
+Metaphysics goal is not only to create profitable, commercial deepfake content for clients like Gillette, but to actively move deepfake technology away from its heinous origins in the world of non-consensual pornography. It is imperative to create content that is used to educate viewers and raise awareness about the underlying technologies in order to disrupt the negative impact of unethical uses of synthetic media, Metaphysic cofounder and CEO Thomas Graham wrote in a blog post introducing the company. We exist basically, exactly, to offer alternatives and to move away from this dodgy stuff, Graham told Motherboard. 
+
+But a person doesnt have to dig deep to see that the world of so-called ethical and commercial deepfakes hasnt done much to distance itself from some of the most vile content that exists on the internet. In fact, the distance between the squeaky clean deepfake Tom Cruise that charmed the world and the epicenter of non-consensual deepfake porn online is exactly two clicks. 
+
+On Ums YouTube channel, beneath a video that explains how he created DeepTomCruise, he links to the software he used: DeepFaceLab, an open-source Github project maintained by a Russian man who goes by the name Ivan Perov or iperov. 
+
+ADVERTISEMENT
+
+Chris Um. Image: Metaphysic
+CHRIS UM. IMAGE: METAPHYSIC
+
+DeepFaceLab is, without a doubt, the most important technology powering the vast majority of this generation of deepfakes. Development of this open source project is a collaboration between Perov and other independent developers, but also members of Mr. Deepfakesthe largest, most prolific non-consensual deepfake porn site on the internet. Um himself is listed as a collaborator on a research paper about the project alongside Perov and Mr. Deepfakes, and development and implementation of the technology is largely talked about in a Discord channel that Um is a member of, and on a forum on Mr. Deepfakes' website. 
+
+It's difficult to overstate the influence of DeepFaceLabs. The research paper explaining how it works is cited by a Disney patent, a paper by TikTok owner ByteDance, a NATO research project, and dozens of deep learning research papers. The DeepFaceLabs Github is credited and linked to in many of the viral, mainstream, and commercial deepfake videos youve seen, including many of Ums videos.
+
+As the DeepFaceLab Github makes clear, if you want to actually learn how to use the software and participate in its improvement, you need to visit Mr. Deepfakes, the home of non-consensual deepfake porn online.
+
+Most non-consensual deepfake porn creators also credit their work to DeepFaceLab, a connection the project's Github actively promotes. In addition to an overview of the software, its Github page links multiple times to Mr. Deepfakes, which it calls "the biggest NSFW English community." The page sends users to Mr. Deepfakes to find DeepFaceLab's main guide, datasets that make deepfakes possible, a place to discuss and make suggestions about the software, and more. Perov, DeepFaceLabs main developer, and a man who goes by the name Nikolay Chervoniy, the main developer of a DeepFaceLab offshoot that uses Google Colab to generate deepfakes instead of expensive (and now scarce) graphic cards, post to the Mr. Deepfake forums. 
+
+ADVERTISEMENT
+
+Metaphysic does not endorse any website or platform that uses open-source third-party software, including DeepFaceLab, for harmful activity, a Metaphysic spokesperson told Motherboard after this piece was first published. We use a number of proprietary and open source software tools in the development of synthetic media that is in no way malicious.
+
+Screenshot of Mr. Deepfakes.
+Mr. Deepfakes is not just a site that happens to host deepfake pornography where dozens of new, non-consensual deepfake porn videos are posted on a daily basis. Hosting and developing deepfake celebrity porn is its entire reason for being. When Reddit updated its policy in 2018 to ban deepfake porn from its initial home on that platform, the community dispersed for a brief period of time, but then quickly started to coalesce around Mr. Deepfakes, which functions like a porn tube site dedicated to deepfake pornography, and which crucially includes a forum. The forum is where people share knowledge on how to create increasingly convincing deepfake videosnow primarily by using DeepFaceLaband the tube site is where people share and monetize their results. As the DeepFaceLab Github makes clear, if you want to actually learn how to use the software and participate in its improvement, you need to visit Mr. Deepfakes, the home of non-consensual deepfake porn online.
+
+ADVERTISEMENT
+
+Mr. Deepfakes, which has been widely covered as being a black market where people buy and sell AI-generated porn, abuses the likeness of any movie star, politician, or social media influencer you can imagine, and many that you probably cant, as deepfake pornography has exploded in popularity in India, South Korea, and other parts of Asia. The site has a blacklist of highly requested celebrities who recently turned 18 that deepfake creators arent allowed to abuse. The logic is that even if the celebrity is currently 18, their facesetthe thousand of images of their face the DeepFaceLab software needs in order to create a deepfakewill inevitably include images of them while they were minors, meaning the final product will be feature AI-generated porn of a minors image. However, Motherboard found that Perov, DeepFaceLabs main developer, shared a dataset of a blacklisted celebrity who was a minor at the time on Mr. Deepfakes, anyway.
+
+Tech
+A Popular Face Swap App Is Advertising Deepfakes on Porn Sites
+SAMANTHA COLE, EMANUEL MAIBERG
+05.10.22
+
+The DeepFaceLab Github page claims that more than 95 percent of deepfake videos are created with DeepFaceLab, a figure Motherboard cant verify, but many deepfake videos online credit their creation to DeepFaceLab, and the high quality videos that have gone viral and led to commercial work are almost exclusively made with DeepFaceLab. These include deepfake maker Shamook, who was hired by Disney after his viral video deepfaking Mark Hamill into The Mandarlorian, and a collection of deepfake creators now known as Deep Voodoo, who most recently worked on Kendricks Lamar The Heart Part 5 music video. Before Um started Metaphysic, he also worked with Deep Voodoo on Sassy Justice, a deepfake web series produced by South Park creators Matt Stone and Trey Parker.
+
+ADVERTISEMENT
+Viral deepfake videos of The Mandalorian , Sassy Justice, and Kendrick Lamar are all linked to DeepFaceLab. Image: Shamook, Sassy Justice, Kendrick Lamar.
+VIRAL DEEPFAKE VIDEOS OF THE MANDALORIAN , SASSY JUSTICE, AND KENDRICK LAMAR ARE ALL LINKED TO DEEPFACELAB. IMAGE: SHAMOOK, SASSY JUSTICE, KENDRICK LAMAR.
+
+When Motherboard asked Graham if Metaphysic still uses DeepFaceLab, he said that the company uses a large variety of things, mostly proprietary stuff, and that it has moved away from that [DeepFaceLab] substantively. However, a deepfake video Um shared on YouTube as recently as January states that it was created with and links back to DeepFaceLab, and a showcase of commercial work on Metaphysics site shows that an ad it made for The Belgian Football Association also used DeepFaceLab.
+
+In many ways, DeepFaceLab is a utopian implementation of open-source software ideals. It is a free piece of software, made by anonymous developers all over the world, working together as a community to perfect cutting edge technology. The problem is that most deepfakes are created with DeepFaceLab, and most deepfakes are non-consensual porn. Metaphysics own head of policy, Henry Ajder, a self-described expert who previously advised the European Commission on the dangers of deepfakes, co-authored a 2019 paper that found that 96 percent of all deepfake videos are deepfake pornography.
+
+It is impossible to support the DeepFaceLab project without actively supporting non-consensual porn. Motherboard has no reason to believe that he has ever created deepfake porn himself, but according to chat logs, DeepFaceLab contributors, and Metaphysic itself, Um was a key part of the DeepFaceLab community. Metaphysic says Um has never created pornography.
+
+ADVERTISEMENT
+But the links between Metaphysic, other safe-for-work deepfake creators, and the deepfake porn community isnt limited to crediting the Github project. Um, another Metaphysic employee, and Shamook are also in a DeepFaceLab Discord channel where members discuss and help each other improve DeepFaceLab and make deepfake videos. Out of the hundreds of users who are inside the Discord at any given moment, Um and Shamook are two of a handful who have the special title of deepfaker. 
+
+Screenshot of the DeepFaceLab Github page, listing "mrdeepfakes" as the biggest NFSW English community
+SCREENSHOT OF THE DEEPFACELAB GITHUB PAGE, LISTING "MRDEEPFAKES" AS THE BIGGEST NFSW ENGLISH COMMUNITY
+
+On January 9, 2021, the first message in the history of the Discords main discussion chat is from Perov to Um. Perov joked a real video of Donald Trump finally agreeing to a peaceful transition of power after losing the election was a deepfake. 
+
+Hes way too nice. MUST BE FAKE, Um replied. 
+
+Like the DeepFaceLab Github, users on the DeepFaceLab Discord link and send people to Mr. Deepfakes dozens of times to find guides on how to use the software, troubleshoot, and download facesets. 
+
+Identity
+Deepfakes Were Created As a Way to Own Women's BodiesWe Can't Forget That
+SAMANTHA COLE
+06.18.18
+
+Let's say you have some frames where the porn star has a d in front of her face - do you mask the whole face (cutting through the d) and then mask the d as an obstruction? Or do you mask around the d? One user on the Discord asked in March of 2021, with d obviously referring to a dick. 
+
+Another user replied to them, linking to and quoting from the guide on Mr. Deepfakes: Do not include in the main label any major obstructions (or use exclude tool): - hands and other obstructions (for NSFW obviously mark out all other obstructions too).
+
+ADVERTISEMENT
+One member of the Discord is one of the most prolific deepfake porn creators on Mr. Deepfakes, where he has posted more than 400 deepfake porn videos under the same moniker he uses on the Discord. 
+
+Does anyone know if Ryzen 5950x has Problems running [DeepFakeLab]? the prolific deepfake porn creator asked on the Discord. I just got a new system with RTX 3060, 32gb ram, and ryzen 5950 cpu and getting error.
+
+In September 2021, one user on the Discord questioned the DeepFaceLab communitys decision to be so closely aligned with non-consensual porn and Mr. Deepfakes. 
+
+I could imagine that running the largest deepfake porn tube right next to the main guide linked on GitHub seems like sorta encouragement, the user said. But anyways. Im already happy if some people reflect what they are doing and thats it.
+
+Im going to produce so much deepfaked porn just because of your opinion, another user replied.
+
+Motherboard has also viewed Discord chats from January 2021 between Um and Perov, the main developer of DeepFaceLab, in which he jokes about one of his Deep Tom Cruise videos. This conversation was not about deepfake porn, and Motherboard has never seen Um talk to other members of the DeepFaceLab community about porn.
+
+Thank you for your kind words guys. I keep learning with every video I make, Um wrote on the Discord in May 2021.
+
+Um appears to have left the DeepFaceLab Discord after Motherboard interviewed Metaphysics CEO Thomas Graham. Metaphysic declined to make Um available for an interview for this piece.
+
+ADVERTISEMENT
+Graham said that, as far as he knows, the interaction between Um and Perov was just about Um testing DeepFaceLab for Perov. But you know, it is a small community, I'm not sure who else is interacting with that person on a regular basis. Or, yeah, I don't know, really. Is it like one person? Is it a team? Is it the Russian government?
+
+Perov declined to comment for this story, but Motherboard told Graham that, while he is Russian, we have no reason to believe he is working for the Russian government. 
+
+That creators of viral deepfake videos, like Um, send viewers to the DeepFaceLab Github, which in turn sends them to Mr. Deepfakes, perpetuates and normalizes that harm.
+
+Why not, though? Graham asked. I'm not blowing smoke up your ass. But like, it is seemingly good. Right? Is it just one rogue dudeI didn't know anything about how it's run. But we don't endorse, don't have any interaction with, don't contribute to the Github, never done anything like that. Yeah, I don't know what else to say. We actively don't have anything to do with these people.
+
+At the time of writing, another Metaphysic employee was still a member of the DeepFaceLab Discord server.
+
+Discords policy prohibits sharing deepfake pornography, and the company regularely shuts down such communities after Motherboard reports about them, so the DeepFaceLab Discord doesnt share explicit media. However, the Discord community is an offshoot of a DeepFaceLab Telegram channel. A link to the Discord server was posted to the Telegram channel when it started, sending users there. Telegram does not have policies against deepfake porn, and users on its DeepFaceLab channel freely share their attempts to make deepfake porn, and ask and offer to create deepfake videos in exchange for cryptocurrency.
+
+ADVERTISEMENT
+Screen Shot 2022-05-16 at 1.20.06 PM.png
+The connection between Um, DeepFaceLab, and Mr. Deepfakes is most bizarrely demonstrated by a pre-print, non-peer reviewed paper titled: DeepFaceLab: Integrated, flexible and extensible face-swapping framework. First submitted to the Arxiv pre-print server in May 2020, the papers listed authors illustrate the entire spectrum of characters involved with deepfake technology, and how theyre all still linked to non-consensual porn. The listed authors include Perov and Chervoniy, the two key DeepFaceLab developers, Um, two researchers from the University of Science and Technology of China, and a handful of other freelance developers. 
+
+Among the authors is also Mr. Dpfks, the moniker the person who operates Mr. Deepfakes uses on that site. 
+
+According to Google Scholar, while the paper was never published in a journal, it has been cited by 83 other papers produced by universities, conferences, and companies like Bytedance, which owns TikTok. For example, The Double-Edged Sword of AI: Enabler of Disinformation, a December 2021 paper produced by NATO StratCom COE, which aims to help with NATOs strategic communication, cites the DeepFaceLab paper and its authors, namechecking Um and Mr. Dpfks. A Disney patent for Three-dimensional geometry-based models for changing facial identities in video frames and images also cites the DeepFaceLab paper.
+
+ADVERTISEMENT
+The authors of the paper that Motherboard spoke to had different explanations for who was listed as an author, why, and what their contributions were to the paper and the DeepFaceLab project itself. 
+
+Kunlin Liu, the University of Science and Technology of China researcher who submitted and updated the paper several times, told Motherboard that the researchers collaborated via Telegram.
+
+The main contributors are Ivan [Perov], Kunlin, chervonij [Nikolay Chervoniy], Daiheng, Liu said in an email. We all contribute a lot to the paper. Among us, I'm a Ph.D candidates, major in computer science, who provide academic opinions about DFL's update. Ivan is the main guy who construct the whole framework. It is a hard work that take him a lot of time.
+
+A portion from the DeepFaceLab paper which uses a deepfake of Tom Cruise to explain how it works. Image: Petrov et al.
+A PORTION FROM THE DEEPFACELAB PAPER WHICH USES A DEEPFAKE OF TOM CRUISE TO EXPLAIN HOW IT WORKS. IMAGE: PETROV ET AL.
+
+There are discrepancies between the authors listed on Arxiv and the PDF of the paper itself. For example, Mr. Dpfks is listed as an author on Arxiv, but not in the PDF. Liu explained that Um and Mr. Dpfks contributed to the DeepFaceLab project but not the paper, and that he removed their names from the current version of the paper but forgot to update the author list on Arxiv. (Um is still listed as an author on both). Mr. Dpfkss contribution, Liu said, was that Mr. Dpfks hold a huge forum about DFL, so I also said that he contribute a lot.
+
+As a researcher, I think it's our duty to make a summary of DFL, Liu said. Actually, besides DFL, no face-swapping methods can produce stable and high quality video results. Writing a paper can help us make a better DFL and improve the development of AI techs.
+
+ADVERTISEMENT
+Liu also said that the researchers who authored the paper helped make DeepFaceLab stronger by submitting their methods to Chervoniy, who then submitted code changes to the project with Perovs account. Chervoniy denied this in an interview with Motherboard. 
+
+Um did not personally respond to a request for comment, but Motherboard did interview his Metaphysic cofounder Thomas Graham and the companys head of policy Henry Adjer.
+
+I think that the contribution [to DeepFaceLab] was some product testing, Graham said. He didn't write any of the code or participate in that process. It's a very small community. And so Chris as the leading creator in the space is often asked to road test new versions of software models, etcetera.
+
+"In April 2020, Chris gave permission for screengrabs from his previous, unrelated work to be used in an academic technical paper published on arxiv.org, a Metaphysic spokesperson told Motherboard after this piece was first published. Chris is not an author on this paper and has since asked for his name to be removed to avoid confusion. The spokesperson also said that despite Grahams initial statement, Chris has never engaged in product testing for DFL.
+
+Graham said that its a misrepresentation to say that we are not distancing ourselves from that space. Our entire product lineup, everything that we do, is designed to empower individuals to control their data and be able to actively give consent to any kind of synthetic representation of themselves. So I don't have any idea, certainly before my time as to when that paper came out, and what Chris's reaction was, I believe it [his name] was just randomly slapped on there. That's the full extent of my knowledge.
+
+ADVERTISEMENT
+Tech
+There Is No Tech Solution to Deepfakes
+SAMANTHA COLE
+08.14.18
+
+The spokesperson said that Um was not aware that he was listed as a co-author with Mr. Dpfks until Motherboard reached out for comment, and that he has since asked for his name to be removed from the paper.
+
+When we asked why Um links to DeepFaceLab in his videos if the project sends users directly to the deepfake porn community, Graham said that its only ethical to give proper credit to the people who made the technology. 
+
+The open source stuff is, on many levels, once the cats out of the bag, it's out of the bag, right? Graham said. So I think that the only thread you're trying to pull on is that Chris gives attribution to people whose software he uses, which seems like the right thing to do, right? I don't think that means that he endorses it in any way.
+
+"It is industry standard among all major creators and companies to give attribution to software used in creating synthetic media, Metaphysics spokesperson added. 
+
+Adjer, who Graham described to Motherboard as the world leading expert on the ethics of deepfakes, had a less generous view of DeepFaceLab.
+
+The past four years of my life, my work has been focused on trying to fight malicious uses of synthetic media and deepfakes. I've worked with victims, I've worked with governments around legislation around this stuff. And I've seen firsthand, trawling through a lot of these really awful places the harm that it does, and I know that very deeply, Adjer said. I think the person behind DeepFaceLab who is linking and associating his project with these platforms is abhorrent. And I think, you know, it makes me sick, to be honestI think what Tom [Graham] is saying is true on one level[but] Do I think that there is a question that we should be trying to starve this person of any oxygen they have to continue perpetuating abuse against against predominantly women, and also women of color and minority groups? Absolutely.
+
+ADVERTISEMENT
+Grahams response about DeepFaceLabs close ties to deepfake porn mirrors the same explanation Motherboard got from DeepFaceLab developer Chervoniy, and every other deepfake porn creator Motherboard has talked to since 2017: the technology is just a tool, and how people choose to use it doesnt make the tool inherently bad. 
+
+We are not forcing anyone to do anything, we are not endorsing anything, Chervoniy told Motherboard. We are exploring the possibilities of using neural networks. We are developing a tool. How people use that tool is not our responsibility.
+
+Its important to note that, unlike Um, Chervoniy actively develops DeepFaceLab and posts to the Mr. Deepfakes forum. Motherboard has seen Telegram chats in which he troubleshoots problems for DeepFaceLab users who are clearly producing non-consensual pornography. 
+
+Chervoniy said that we've never been affiliated with pornography, but when we asked why the DeepFaceLab still links to and relies on guides on Mr. Deepfakes, he said: Because forum has most complete guide, which has been curated and collected piece by piece for years. You're saying now to throw it all away.
+
+Again, Um himself did not talk to Motherboard for this story, but Graham stressed the integrity of Ums character, Metaphysics commitment to not only producing ethical AI-generated content itself, but pointed to the companys Synthetic Futures, the first community dedicated to ethical synthetic media and the future of reality created with machines. Motherboard has found no evidence and has no reason to believe that Um has ever produced a deepfake porn video. He has spoken against the practice repeatedly. 
+
+Youre always going to have people misusing the technology, so I think we need regulation of whats allowed and whats not, Um previously told VICE. I dont agree that people can just use it for pornography or changing political speeches without consequences. We need to regulate these kinds of things.
+
+Metaphysics stated commitment to ethics and viral videos have shifted the conversation around deepfakes away from non-consensual porn and to the technologys potential. In glowing profiles on CNN, The Verge, 60 Minutes, Fortune, and even VICE, Metaphysic has acknowledged the risk and troublesome legacy of deepfakes, but then successfully pivoted the conversation to the special effects business potential in Hollywood. 
+
+DeepTomCruise TikTok page. Image: @deeptomcruise/Tiktok
+DEEPTOMCRUISE TIKTOK PAGE. IMAGE: @DEEPTOMCRUISE/TIKTOK
+
+But non-consensual porn is not a part of deepfakes past, nor is it possible to separate it from Metaphysic, Disney, Kendrick Lamars hit new video, Sassy Justice, and those mind blowing deepfake Tom Cruise videos. They are still using DeepFaceLab, a technology that is developed for and monetized by deepfake porn. Theyre not even trying to hide it. They are linked to it figuratively and literally.
+
+Deepfakes have gone around the world since they first appeared in 2017. When deepfake porn was banned from Reddit, it was replaced by SFW deepfake parodies of celebrities. Then, experts warned us about the danger that deepfakes pose in spreading disinformation, a mostly unfounded threat that most recently materialized in the form of a laughable deepfake video of Ukrainian President Volodymyr Zelenskyy surrendering. But the primary problem with deepfakes never changed. They come from and are still deeply rooted in non-consensual pornography. The fact that DeepFaceLab is now becoming a part of mainstream media only launders its origins in non-consensual deepfake porn, and the harm it continues to do today. That creators of viral deepfake videos, like Um, send viewers to the DeepFaceLab Github, which in turn sends them to Mr. Deepfakes, perpetuates and normalizes that harm.
+
+I would push back quite heavily on the assertion that there is a causal link between those two things, Graham said. That doesn't really make a lot of sense to me. I think that the better way to express it is that there are a large variety of different softwares, algorithms, libraries, etcetera, that go into creating something like Deep Tom Cruise, one of which happens to be something which is also used by people with malicious intent to create deep fake pornography, and that the fact that they do that is, I think, sad and harmful.
+
+We condemn using GitHub to post sexually obscene content and prohibit such conduct in our Terms of Service and Acceptable Use Policies, a Github spokesperson told Motherboard. GitHub conducts some proactive screening for such content, in addition to actively investigating abuse reports, and we quickly take action where content violates our terms. Our Acceptable Use Policies were developed to accommodate dual-use projects and do not prohibit software that may have adult applications so long as they do not post sexually obscene content on the platform.
+
+After Motherboard found a supposedly innocuous face swapping app advertising non-consensual deepfakes on porn sites earlier this month, Hany Farid, image forensics expert and professor at University of California, Berkeley, said that its up to the people building this technology to own up to their roles in perpetuating the problem of malicious deepfakes. 
+
+I think there should be pressure on academics like me to say, Look, maybe we shouldn't just ask how we do something, maybe we should ask if we should do something, Farid said at the time. I don't think you can say that technology is inherently benign. It's being weaponized in exactly the way you think it's going to be weaponized: against women and vulnerable populations.
+
+Disney, Shamook, Matt Stone, and Trey Parker did not respond to a request for comment. 
+
+This article has been updated with additional comment from Metaphysic.

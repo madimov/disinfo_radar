@@ -1,0 +1,36 @@
+OpenAI's GPT-3-based pair programming model  Codex  now open for private beta testers through an API
+Plus: Self-driving Humvees funded by US Army to the tune of millions
+Katyanna Quach	Mon 16 Aug 2021 // 15:02 UTC
+4 comment bubble on white
+
+IN BRIEF OpenAI has released its new and improved version of Codex, its AI code-completion model, to beta testers through an API.
+
+Co-founders Greg Brockman and Ilya Sutskever demonstrated Codex's abilities during a livestream broadcasted on Twitch, earlier this week. They showed the system was capable of generating Python code for simple tasks like printing and formatting text, given instructions in plain English.
+
+If you want to check that Codex is right, however, then, yes, you'll have to know how to write Python. Codex is the back engine of GitHub Copilot, pair programming software initially launched by GitHub a couple of months ago.
+
+The AI model was described as "a descendant of GPT-3" by OpenAI. GPT-3 was trained on text scraped from the internet and excels in natural language tasks. In order to get it to specialise in code, however, engineers had to fine-tune it on billions of lines of code copied from GitHub.
+
+"OpenAI Codex is most capable in Python, but it is also proficient in over a dozen languages including JavaScript, Go, Perl, PHP, Ruby, Swift and TypeScript, and even Shell. It has a memory of 14KB for Python code, compared to GPT-3 which has only 4KB  so it can take into account over 3x as much contextual information while performing any task," the AI startup said.
+
+You can sign up to access the API here.
+
+Samsung designs its own AI chips for its future smartphones
+South Korean tech giant Samsung has confirmed home-grown new hardware to run machine learning algorithms on its Exynos chipset for smartphones.
+
+The kit was designed using Synopsys AI's software, Wired first reported. Not much is known about chip's specs or if they have gone into production yet, but there's more than enough competition on the AI smartphone circuit.
+
+"What you're seeing here is the first of a real commercial processor design with AI," gushed Aart de Geus, the chairman and co-CEO of Synopsys.
+
+The news follows Google's announcement that it had also built its own AI chips for its upcoming Pixel 6 and Pixel 6 Pro handsets coming later this year. Building accelerators that are optimized to a set of custom AI models seems to becoming the norm as smartphones use more and more machine learning techniques to process images and the like.
+
+Southwest Institute engineers get $34m to build self-driving Humvees for the US Army
+Non-profit research org Southwest Institute has been awarded a $34m contract to help build heavy-duty autonomous vehicles for the US Army.
+
+"SwRI is proud to continue developing the latest autonomous and robotic systems for the US military," Joseph Hernandez, a principal engineer working at the institute, who is managing the program, said in a statement.
+
+"This contract offers a more direct link to our end customers and allows us to provide more innovative solutions to support our warfighters."
+
+Engineers will develop the software needed to operate high mobility multi-purpose wheeled vehicles, more commonly known as Humvees, autonomously. SwRI has contracted with the US military to help it figure out how to integrate sensors and machine learning algorithms in cars and drones for over a decade.
+
+The $34m funding will be dished out over five years.
