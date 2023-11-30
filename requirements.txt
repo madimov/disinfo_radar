@@ -1,0 +1,9 @@
+arxiv
+pandas
+tika
+pdfminer.six
+lxml
+fake-useragent
+nltk
+spacy
+scikit-learn==1.0.2
