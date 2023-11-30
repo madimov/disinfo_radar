@@ -3,7 +3,6 @@ from sklearn.cluster import MeanShift
 from sklearn.cluster import AffinityPropagation
 import numpy as np
 import pandas as pd
-import pyarrow.parquet as pq
 from sentence_transformers import SentenceTransformer
 import regex as re
 
@@ -22,43 +21,27 @@ class SpanClusterer:
         # TODO: rename to model_span_vectorizer
         pass
 
-    def validate_spans(self, spans_to_validate): # TODO: rename to get_valid_spans
-        validated_spans = []
-        
-        for span in spans_to_validate:
-            valid_span = True
-            if len(span) >= 30 and " " not in span:
-                valid_span = False
-    #         elif span[0] in string.punctuation:
-    #             valid_span = False
-            elif re.search(r"^[^a-zA-Z]", span):
-                valid_span = False
-            
-            
-            if valid_span:
-                validated_spans.append(span)
-        
-        return validated_spans
+    # def filter_and_cluster_spans(self, df_span_scores):
+    def cluster_spans(self, spans):
 
-    def filter_and_cluster_spans(self, df_span_scores):
+        # # df_span_scores = pd.read_csv("df_span_scores_50_articles.csv", sep="|")
+        # spans_filtered = df_span_scores[df_span_scores["span_score"] >= 0.999]["span_text"].unique().tolist()
+        # self.spans = self.validate_spans(spans_filtered)
+        # self.spans_embeddings = self.model_sentence_transformer.encode(self.spans)
 
-        # df_span_scores = pd.read_csv("df_span_scores_50_articles.csv", sep="|")
-        spans_filtered = df_span_scores[df_span_scores["span_score"] >= 0.999]["span_text"].unique().tolist()
-        self.valid_spans = self.validate_spans(spans_filtered)
+        spans_embeddings = self.model_sentence_transformer.encode(spans)
 
-        self.valid_spans_embeddings = self.model_sentence_transformer.encode(self.valid_spans)
-
-        X = np.array(self.valid_spans_embeddings)
+        X = np.array(spans_embeddings)
 
         clustering = AffinityPropagation(random_state=5).fit(X)
 
-        span_cluster_pairs = list(zip(self.valid_spans, clustering.labels_))
+        span_cluster_pairs = list(zip(spans, clustering.labels_))
 
         dict_clusters = {}
         for pair in span_cluster_pairs:
             span_cluster_index = pair[1]
             cluster_center_span_index = clustering.cluster_centers_indices_[span_cluster_index]
-            cluster_center_span = self.valid_spans[cluster_center_span_index]
+            cluster_center_span = spans[cluster_center_span_index]
             span_text = pair[0]
             if span_cluster_index in dict_clusters:
                 dict_clusters[span_cluster_index].append(span_text)
@@ -68,7 +51,7 @@ class SpanClusterer:
         dict_clusters_with_labels = []
         for cluster_index in dict_clusters:
             cluster_center_span_index = clustering.cluster_centers_indices_[cluster_index]
-            cluster_center_span = self.valid_spans[cluster_center_span_index]
+            cluster_center_span = spans[cluster_center_span_index]
             spans_in_cluster = dict_clusters[cluster_index]
             print(cluster_center_span)
             for span in spans_in_cluster:
@@ -82,7 +65,5 @@ class SpanClusterer:
             
 
         df_clusters_with_labels = pd.DataFrame(dict_clusters_with_labels)
-
-        df_clusters_with_labels.to_parquet("df_clusters_AP_with_labels_50_articles.parquet") # backup to be able to check mapping
 
         return df_clusters_with_labels

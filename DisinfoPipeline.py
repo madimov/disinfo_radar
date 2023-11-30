@@ -1,3 +1,6 @@
+import sys
+sys.path.append('./scraping') # needed so this script has access to nested imports in collection.py and processing.py
+
 import spacy
 import pandas as pd
 from nltk.tokenize import sent_tokenize
@@ -9,23 +12,61 @@ from os import listdir
 from os.path import isfile, join
 from datetime import datetime
 from datetime import timezone
+import pyarrow.parquet as pq
+import os
 
 from EntityRecognizer import EntityRecognizer
+from SpanFilter import SpanFilter
 from SpanClusterer import SpanClusterer
 from DisinfoFactorScorer import DisinfoFactorScorer
 from Analyzer import Analyzer
 from Config import Config
+
+from scraping.collection import run_collection
+from scraping.processing import run_processing
 
 
 class DisinfoPipeline:
 
     def __init__(self):
         print("creating DisinfoPipeline...")
-        # self.config = configparser.ConfigParser()
-        # self.config.read('config.ini')
         pass
 
-    def load_sentences_from_files(self):
+    def scrape_articles(self):
+        print("scrape_articles()...")
+        run_collection()
+
+    def preprocess_scraped_articles(self):
+        print("preprocess_scraped_articles()...")
+        run_processing()
+
+    def load_sentences_from_compiled_archive(self):
+        print("load_sentences_from_compiled_archive()...")
+        # getting sentences from articles
+        compiled_archive_file_path = "scraping/data/archive/compiled.csv"
+        # onlyfiles = [f for f in listdir(articles_file_path) if isfile(join(articles_file_path, f))]
+        df_compiled_archive = pd.read_csv(compiled_archive_file_path)
+        
+        raw_sentences_objs = []
+
+        article_contents = df_compiled_archive['cleaning'].tolist()[:1]
+        article_urls = df_compiled_archive['url'].tolist()#[:1] # can limit selection for testing
+
+        for i, article_content in enumerate(article_contents):
+            article_url = article_urls[i]
+            article_sentences = sent_tokenize(article_content)
+            
+            for i, article_sentence in enumerate(article_sentences):
+                raw_sentence_obj = {
+                    "article_url": article_url, # changing from filename to URL when loading from compiled archive
+                    "sentence": article_sentence,
+                    "sentence_index": i
+                }
+                raw_sentences_objs.append(raw_sentence_obj)
+
+        self.raw_sentences_objs = raw_sentences_objs
+
+    def load_sentences_from_files(self): # loads text from individual article files used during testing
         print("load_sentences_from_files()...")
         # getting sentences from articles
         articles_file_path = "data/documents_for_annotation/"
@@ -50,30 +91,42 @@ class DisinfoPipeline:
         self.raw_sentences_objs = raw_sentences_objs
 
     def extract_spans_from_sentences(self):
-        print("extract_spans_from_sentences()...")
+        print("extract_spans_from_sentences()... starting")
         self.entityRecognizer = EntityRecognizer()
         self.span_data_objs = self.entityRecognizer.get_spans_from_sentence_objs(self.raw_sentences_objs)
+        print("extract_spans_from_sentences()... done")
 
     def predict_disinfo_factor_scores(self):
-        print("predict_disinfo_factor_scores()...")
+        print("predict_disinfo_factor_scores()... starting")
         self.disinfoFactorScorer = DisinfoFactorScorer()
         span_scores_data_objs = self.disinfoFactorScorer.get_all_disinfo_factor_scores(self.span_data_objs)
         self.df_span_scores = pd.DataFrame(span_scores_data_objs)
-        current_timestamp = datetime.now(timezone.utc).strftime("%Y_%m_%d-%H_%M_%S")
-        self.df_span_scores.to_csv(f"output/df_span_scores_{current_timestamp}.csv", sep="|", index=False)
+        # current_timestamp = datetime.now(timezone.utc).strftime("%Y_%m_%d-%H_%M_%S")
+        self.df_span_scores.to_csv(f"{self.run_output_directory}/df_span_scores_{self.run_timestamp}.csv", sep="|", index=False)
 
         if (Config.cfg['default']['filter_and_cluster_spans'] == False):
-            self.df_span_scores_final = self.df_span_scores # in case not filtering & grouping by span clusters
+            self.df_span_scores_final = self.df_span_scores
+
+        print("predict_disinfo_factor_scores()... done")
 
     def filter_and_cluster_spans(self):
-        print("filter_and_cluster_spans()...")
+        print("filter_and_cluster_spans()... starting")
+
+        self.spanFilter = SpanFilter()
+        self.spans_filtered = self.spanFilter.filter_spans(self.df_span_scores)
+
         self.spanClusterer = SpanClusterer()
-        self.df_clusters_with_labels = self.spanClusterer.filter_and_cluster_spans(self.df_span_scores)
+        # self.df_clusters_with_labels = self.spanClusterer.filter_and_cluster_spans(self.df_span_scores)
+        self.df_clusters_with_labels = self.spanClusterer.cluster_spans(self.spans_filtered)
+        # backup to be able to check mapping of span to cluster
+        # self.df_clusters_with_labels.to_parquet(f"{self.run_output_directory}/df_clusters_with_labels_{self.run_timestamp}.parquet") # parquet helps easily load list of spans back into list
+        self.df_clusters_with_labels.to_csv(f"{self.run_output_directory}/df_clusters_with_labels_{self.run_timestamp}.csv", sep="|") # csv is fine for manual checking
 
         dict_span2cluster = {}
 
         list_cluster_labels = self.df_clusters_with_labels["cluster_label"]
-        list_of_lists_cluster_spans = [a.tolist() for a in self.df_clusters_with_labels["spans"].tolist()]
+        # list_of_lists_cluster_spans = [a.tolist() for a in self.df_clusters_with_labels["spans"].tolist()]
+        list_of_lists_cluster_spans = [a for a in self.df_clusters_with_labels["spans"].tolist()]
 
         for i, cluster_label in enumerate(list_cluster_labels):
             list_cluster_spans = list_of_lists_cluster_spans[i]
@@ -92,22 +145,40 @@ class DisinfoPipeline:
         df_span_scores_filtered["cluster_label"] = list_span2cluster_labels_mapped
         self.df_span_scores_final = df_span_scores_filtered
 
+        print("filter_and_cluster_spans()... done")
+
     def analyze_disinfo_potential(self):
+        print("analyze_disinfo_potential()... starting")
         self.analyzer = Analyzer()
-        df_disinfo_analysis = self.analyzer.get_tech_disinfo_analysis(self.df_span_scores_final)
+        df_tech_disinfo_analysis = self.analyzer.get_tech_disinfo_analysis(self.df_span_scores_final)
+        df_tech_disinfo_analysis = df_tech_disinfo_analysis.sort_values("counts", ascending=False)
+        # df_tech_disinfo_analysis.to_csv("df_tech_disinfo_analysis_50_articles_WITH_CLUSTERS.csv", sep="|")
+        # current_timestamp = datetime.now(timezone.utc).strftime("%Y_%m_%d-%H_%M_%S")
+        df_tech_disinfo_analysis.to_csv(f"{self.run_output_directory}/df_tech_disinfo_analysis_{self.run_timestamp}.csv", sep="|")
+        print("analyze_disinfo_potential()... done")
 
     def run(self):
-        print("run()...")
-        self.load_sentences_from_files()
+        print("PIPELINE run()... starting")
+        # current_timestamp = datetime.now(timezone.utc).strftime("%Y_%m_%d-%H_%M_%S")
+        current_timestamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+        self.run_timestamp = current_timestamp
+        self.run_output_directory = f"output/run_{self.run_timestamp}"
+        os.mkdir(self.run_output_directory) 
+        self.scrape_articles()
+        self.preprocess_scraped_articles()
+        # self.load_sentences_from_files()
+        self.load_sentences_from_compiled_archive()
+        # TODO: only analyze text from new articles to save on performance
         self.extract_spans_from_sentences()
         self.predict_disinfo_factor_scores()
         if (Config.cfg['default']['filter_and_cluster_spans']):
+            # TODO: add option to re-train entity normalization / clustering
             self.filter_and_cluster_spans()
         self.analyze_disinfo_potential()
+        print("PIPELINE run()... done")
 
 
 def main():
-    
     pipeline = DisinfoPipeline()
     pipeline.run()
 
