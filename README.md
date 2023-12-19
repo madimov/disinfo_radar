@@ -9,4 +9,4 @@ The Disinfo Radar pipeline consists of these main steps:
 6. Analyze overall disinformation potential for tech topics
 
 To run the pipeline, run the `DisinfoPipeline.py` script.
-For now, output data is stored locally in the `Output` directory.
+For now, output data is stored locally in the `Output` directory and a subset is uploaded to Google Drive.
