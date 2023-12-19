@@ -11,3 +11,6 @@ google-auth
 google-api-python-client
 gspread-dataframe
 scipy
+sentence-transformers
+pyarrow
+beautifulsoup4

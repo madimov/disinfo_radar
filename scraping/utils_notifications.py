@@ -42,19 +42,22 @@ def send_notification(message):
     You could install and use telegram-send, but if you are like me and you prefer the generic library requests which will give you the experience to handle any HTTP API, this is how to do it:
 
     """
-    dir_path = os.path.dirname(os.path.realpath(__file__))
-    print(dir_path)
 
-    with open('./credentials/bot_token.json') as json_file:
-        token_source = json.load(json_file)
+    # NOTE: turning off for now
 
-    token = token_source['token']
+    # dir_path = os.path.dirname(os.path.realpath(__file__))
+    # print(dir_path)
 
-    url = f"https://api.telegram.org/bot{token}"
+    # with open('./credentials/bot_token.json') as json_file:
+    #     token_source = json.load(json_file)
 
-    params = {"chat_id": "895750691", "text": message} ## IIRC the chat_id will need to be updated based on your bot
+    # token = token_source['token']
 
-    r = requests.get(url + "/sendMessage", params=params)
+    # url = f"https://api.telegram.org/bot{token}"
+
+    # params = {"chat_id": "895750691", "text": message} ## IIRC the chat_id will need to be updated based on your bot
+
+    # r = requests.get(url + "/sendMessage", params=params)
 
 # Test
 #send_notification("Basic test successful")
