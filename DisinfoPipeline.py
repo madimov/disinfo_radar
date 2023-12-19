@@ -1,5 +1,6 @@
 import sys
 sys.path.append('./scraping') # needed so this script has access to nested imports in collection.py and processing.py
+# sys.path.append('./google_funcs')
 
 import spacy
 import pandas as pd
@@ -14,6 +15,7 @@ from datetime import datetime
 from datetime import timezone
 import pyarrow.parquet as pq
 import os
+from scipy.stats import zscore
 
 from EntityRecognizer import EntityRecognizer
 from SpanFilter import SpanFilter
@@ -24,6 +26,12 @@ from Config import Config
 
 from scraping.collection import run_collection
 from scraping.processing import run_processing
+
+import gspread
+from google.oauth2 import service_account
+from google.oauth2.service_account import Credentials
+from googleapiclient.discovery import build
+# from google_funcs import drive_functions
 
 
 class DisinfoPipeline:
@@ -49,7 +57,7 @@ class DisinfoPipeline:
         
         raw_sentences_objs = []
 
-        article_contents = df_compiled_archive['cleaning'].tolist()[:1]
+        article_contents = df_compiled_archive['cleaning'].tolist() [:5] # can limit selection for testing
         article_urls = df_compiled_archive['url'].tolist()#[:1] # can limit selection for testing
 
         for i, article_content in enumerate(article_contents):
@@ -155,7 +163,106 @@ class DisinfoPipeline:
         # df_tech_disinfo_analysis.to_csv("df_tech_disinfo_analysis_50_articles_WITH_CLUSTERS.csv", sep="|")
         # current_timestamp = datetime.now(timezone.utc).strftime("%Y_%m_%d-%H_%M_%S")
         df_tech_disinfo_analysis.to_csv(f"{self.run_output_directory}/df_tech_disinfo_analysis_{self.run_timestamp}.csv", sep="|")
+        self.df_tech_disinfo_analysis = df_tech_disinfo_analysis
         print("analyze_disinfo_potential()... done")
+
+    def save_dataframe_to_drive(self, df, file_name, folder_id):
+        # define the scope
+        scope = ['https://www.googleapis.com/auth/spreadsheets',
+                'https://www.googleapis.com/auth/drive.file',
+                'https://www.googleapis.com/auth/drive']
+
+        # add your service account file
+        creds = service_account.Credentials.from_service_account_file('google_funcs/driveproject-392612-86425acec0ff.json', scopes=scope)
+
+        # authenticate Google Drive API client
+        drive_service = build('drive', 'v3', credentials=creds)
+
+        # check if a file with the same name already exists in the folder
+        query = "name='{}' and parents in '{}' and trashed = false".format(file_name, folder_id)
+        existing_files = drive_service.files().list(q=query, fields='files(id)').execute().get('files', [])
+
+        if existing_files:
+            # get the existing file id
+            file_id = existing_files[0]['id']
+        else:
+            # create a new Google Sheet
+            file_metadata = {'name': file_name, 'mimeType': 'application/vnd.google-apps.spreadsheet',
+                            'parents': [folder_id]}
+            file = drive_service.files().create(body=file_metadata).execute()
+            file_id = file.get('id')
+
+        gc = gspread.service_account("google_funcs/driveproject-392612-86425acec0ff.json")
+        # authenticate gspread client
+        gc = gspread.authorize(creds)
+
+        # open the Google Sheet and get the first worksheet
+        sh = gc.open_by_key(file_id)
+        worksheet = sh.get_worksheet(0)
+
+        # resize the worksheet to accommodate the dataframe and index
+        worksheet.resize(rows=len(df) + 1, cols=len(df.columns))
+
+        # update the worksheet with the dataframe only (no index)
+        data = [df.columns.values.tolist()] + df.values.tolist()
+        worksheet.update(data)
+
+    def save_output_to_google(self):
+        print("save_output_to_google()... starting")
+
+        # df_google_output = self.df_tech_disinfo_analysis.reset_index()
+        # df_google_output = df_google_output.astype("str")
+        # self.save_dataframe_to_drive(df_google_output, "df_google_output_test_2.xlsx", Config.cfg['default']['google_output_file_location'])
+
+        #filter data
+        df_data = self.df_tech_disinfo_analysis
+        df_data_filtered = df_data[(df_data["span_score_mean"]>0.96) & (df_data["counts"]>20)]
+        df_data_filtered = df_data_filtered.reset_index()
+        print(df_data_filtered.columns)
+
+        #dotplot
+        df_dotplot = df_data_filtered[['cluster_label', 'accessibility_mean', 'content_gen_mean', 'automation_mean']]
+        df_dotplot[['accessibility_mean', 'content_gen_mean', 'automation_mean']] = df_dotplot[['accessibility_mean', 'content_gen_mean', 'automation_mean']].apply(zscore)
+        # df_dotplot = df_dotplot.reset_index()
+        df_dotplot = df_dotplot.astype("str")
+        self.save_dataframe_to_drive(df_dotplot, "disinfo_radar_dotplot.xlsx", Config.cfg['default']['google_output_file_location'])
+
+        # scatter plots
+        df_scatter_1 = df_data_filtered[['cluster_label', 'accessibility_mean', 'content_gen_mean']]
+        df_scatter_1[['accessibility_mean', 'content_gen_mean']] = df_scatter_1[['accessibility_mean', 'content_gen_mean']].apply(zscore)
+        # df_scatter_1 = df_scatter_1.reset_index()
+        df_scatter_1 = df_scatter_1.astype("str")
+        self.save_dataframe_to_drive(df_scatter_1, "disinfo_radar_scatterplot_accessibility_VS_content.xlsx", Config.cfg['default']['google_output_file_location'])
+
+        df_scatter_2 = df_data_filtered[['cluster_label', 'accessibility_mean', 'automation_mean']]
+        df_scatter_2[['accessibility_mean', 'automation_mean']] = df_scatter_2[['accessibility_mean', 'automation_mean']].apply(zscore)
+        # df_scatter_2 = df_scatter_2.reset_index()
+        df_scatter_2 = df_scatter_2.astype("str")
+        self.save_dataframe_to_drive(df_scatter_2, "disinfo_radar_scatterplot_accessibility_VS_automation.xlsx", Config.cfg['default']['google_output_file_location'])
+
+        df_scatter_3 = df_data_filtered[['cluster_label', 'content_gen_mean', 'automation_mean']]
+        df_scatter_3[['content_gen_mean', 'automation_mean']] = df_scatter_3[['content_gen_mean', 'automation_mean']].apply(zscore)
+        # df_scatter_3 = df_scatter_3.reset_index()
+        df_scatter_3 = df_scatter_3.astype("str")
+        self.save_dataframe_to_drive(df_scatter_3, "disinfo_radar_scatterplot_content_VS_automation.xlsx", Config.cfg['default']['google_output_file_location'])
+
+        # tornado plot
+        def scale_column(column, min_value, max_value):
+            min_column = column.min()
+            max_column = column.max()
+            scaled_column = (column - min_column) / (max_column - min_column) * (max_value - min_value) + min_value
+            return scaled_column
+
+        df_tornado = df_data_filtered[['cluster_label', 'counts', 'accessibility_mean', 'content_gen_mean', 'automation_mean']]
+        df_tornado[['accessibility_mean', 'content_gen_mean', 'automation_mean']] = df_tornado[['accessibility_mean', 'content_gen_mean', 'automation_mean']].apply(zscore)
+        df_tornado['weighted_disinfo_score'] = ((4 * df_tornado["content_gen_mean"]) + df_tornado["automation_mean"] + df_tornado["accessibility_mean"]) / 6
+        df_tornado = df_tornado[["cluster_label", "counts", "weighted_disinfo_score"]]
+        df_tornado['weighted_disinfo_score'] = scale_column(df_tornado['weighted_disinfo_score'], 10, 210)
+        # df_tornado = df_tornado.reset_index()
+        df_tornado = df_tornado.astype("str")
+        self.save_dataframe_to_drive(df_tornado, "disinfo_radar_tornado.xlsx", Config.cfg['default']['google_output_file_location'])
+
+        print("save_output_to_google()... done")
 
     def run(self):
         print("PIPELINE run()... starting")
@@ -175,12 +282,20 @@ class DisinfoPipeline:
             # TODO: add option to re-train entity normalization / clustering
             self.filter_and_cluster_spans()
         self.analyze_disinfo_potential()
+
+        if (Config.cfg['default']['upload_google_output']):
+            self.save_output_to_google()
+        
         print("PIPELINE run()... done")
 
 
 def main():
     pipeline = DisinfoPipeline()
     pipeline.run()
+
+    # if (Config.cfg['default']['upload_google_output']):
+    #     df_google_output_test = pd.DataFrame({"X": [10, 20], "Y": [30, 40]}).astype("str")
+    #     pipeline.save_dataframe_to_drive(df_google_output_test, "df_google_output_test.xlsx", Config.cfg['default']['google_output_file_location'])
 
 if __name__ == "__main__":
     main()
