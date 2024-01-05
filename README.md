@@ -10,8 +10,8 @@ The Disinfo Radar pipeline consists of these main steps:
 
 Here is an example of how to set up and run the pipeline:
 
-1. `conda create -n dr_test python=3.9`
-2. `conda activate dr_test`
+1. `conda create -n disinfo_pipeline python=3.9`
+2. `conda activate disinfo_pipeline`
 3. `pip install -r requirements.txt`
 4. `python DisinfoPipeline.py`
 
