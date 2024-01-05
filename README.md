@@ -8,5 +8,15 @@ The Disinfo Radar pipeline consists of these main steps:
 5. Predict disinformation potential factor scores for each span
 6. Analyze overall disinformation potential for tech topics
 
-To run the pipeline, run the `DisinfoPipeline.py` script.
-For now, output data is stored locally in the `Output` directory and a subset is uploaded to Google Drive.
+Here is an example of how to set up and run the pipeline:
+
+1. `conda create -n dr_test python=3.9`
+2. `conda activate dr_test`
+3. `pip install -r requirements.txt`
+4. `python DisinfoPipeline.py`
+
+For now, output data is stored locally in the `Output` directory and a subset is uploaded to Google Drive to feed into Infogram visualizations.
+
+To see or edit file locations or pipeline settings, use the `config.ini` file.
+
+For a quick test run of the pipeline with a small data sample, set `test_run_small_sample` to true in `config.ini`.
