@@ -60,8 +60,9 @@ class DisinfoPipeline:
         article_contents = df_compiled_archive['cleaning'].tolist()
         article_urls = df_compiled_archive['url'].tolist()
 
-        if (Config.cfg['default']['test_run_small_sample']): 
+        if (Config.cfg['default'].getboolean('test_run_small_sample') == True): 
             article_contents = article_contents[:5] # can limit selection for quickly testing a small sample. otherwise the whole dataset is re-processed        
+        print(f"len(article_contents) = {len(article_contents)}")
 
         for i, article_content in enumerate(article_contents):
             article_url = article_urls[i]
@@ -115,7 +116,8 @@ class DisinfoPipeline:
         # current_timestamp = datetime.now(timezone.utc).strftime("%Y_%m_%d-%H_%M_%S")
         self.df_span_scores.to_csv(f"{self.run_output_directory}/df_span_scores_{self.run_timestamp}.csv", sep="|", index=False)
 
-        if (Config.cfg['default']['filter_and_cluster_spans'] == False):
+        # if (Config.cfg['default']['filter_and_cluster_spans'] == False):
+        if (Config.cfg['default'].getboolean('filter_and_cluster_spans') == False):
             self.df_span_scores_final = self.df_span_scores
 
         print("predict_disinfo_factor_scores()... done")
@@ -281,12 +283,14 @@ class DisinfoPipeline:
         # TODO: only analyze text from new articles to save on performance
         self.extract_spans_from_sentences()
         self.predict_disinfo_factor_scores()
-        if (Config.cfg['default']['filter_and_cluster_spans']):
+        # if (Config.cfg['default']['filter_and_cluster_spans']):
+        if (Config.cfg['default'].getboolean('filter_and_cluster_spans') == True):
             # TODO: add option to re-train entity normalization / clustering
             self.filter_and_cluster_spans()
         self.analyze_disinfo_potential()
 
-        if (Config.cfg['default']['upload_google_output']):
+        # if (Config.cfg['default']['upload_google_output']):
+        if (Config.cfg['default'].getboolean('upload_google_output') == True):
             self.save_output_to_google()
         
         print("PIPELINE run()... done")
