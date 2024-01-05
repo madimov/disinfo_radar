@@ -2,7 +2,7 @@ import pandas as pd
 
 import os
 from os.path import isfile, join
-from os import listdir, path
+from os import listdir, path, makedirs
 from datetime import datetime
 
 import nltk
@@ -103,6 +103,11 @@ def pre_process(df, key, action_col = 'text', filetype = 'csv', load = False):
       IN_DATA_PATH = dir_path + '/data/input_data/'
       OUTPUT_PATH = dir_path + '/data/final/'
       ARCHIVE_PATH = dir_path + '/data/archive/'
+
+      makedirs(DATA_PATH, exist_ok = True)
+      makedirs(IN_DATA_PATH, exist_ok = True)
+      makedirs(OUTPUT_PATH, exist_ok = True)
+      makedirs(ARCHIVE_PATH, exist_ok = True)
       
       # if load == True: # TODO: load_file was not defined here, so deactivating this for now. Re-implement if needed
       #       if filetype == 'json':
@@ -147,7 +152,13 @@ def run_processing():
       OUTPUT_PATH = dir_path + '/data/final/'
       ARCHIVE_PATH = dir_path + '/data/archive/'
 
-      onlyfiles = [f for f in listdir(DATA_PATH) if isfile(join(DATA_PATH, f))]
+      makedirs(DATA_PATH, exist_ok = True)
+      makedirs(IN_DATA_PATH, exist_ok = True)
+      makedirs(OUTPUT_PATH, exist_ok = True)
+      makedirs(ARCHIVE_PATH, exist_ok = True)
+
+      onlyfiles = [f for f in listdir(DATA_PATH) if isfile(join(DATA_PATH, f)) and 'README' not in f]
+      # NOTE: at one point needed to add a placeholder README.md file in the 'running' directory as empty directories cannot be checked into git
 
       # Loads all files in folder into dataframes
 

@@ -7,7 +7,7 @@ from collect_mit import date_from_url, get_response, mit_searcher
 
 from utils_notifications import send_notification
 
-from os import listdir, path
+from os import listdir, path, makedirs
 import json
 import traceback
 
@@ -16,6 +16,10 @@ def run_collection():
       DATA_PATH = dir_path + '/data/running/'
       IN_DATA_PATH = dir_path + '/data/input_data/'
       OUTPUT_PATH = dir_path + '/data/raw/'
+
+      makedirs(DATA_PATH, exist_ok = True)
+      makedirs(IN_DATA_PATH, exist_ok = True)
+      makedirs(OUTPUT_PATH, exist_ok = True)
 
       # Getting last collection date, if none initializing dictionary
       try:

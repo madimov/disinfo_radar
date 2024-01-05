@@ -74,7 +74,7 @@ class DisinfoPipeline:
 
         self.raw_sentences_objs = raw_sentences_objs
 
-    def load_sentences_from_files(self): # loads text from individual article files used during testing
+    def load_sentences_from_files(self): # loads text from individual article files, used during testing
         print("load_sentences_from_files()...")
         # getting sentences from articles
         articles_file_path = "data/documents_for_annotation/"
