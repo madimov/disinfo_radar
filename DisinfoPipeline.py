@@ -60,7 +60,7 @@ class DisinfoPipeline:
         article_contents = df_compiled_archive['cleaning'].tolist()
         article_urls = df_compiled_archive['url'].tolist()
 
-        if (Config.cfg['default']['filter_and_cluster_spans']): 
+        if (Config.cfg['default']['test_run_small_sample']): 
             article_contents = article_contents[:5] # can limit selection for quickly testing a small sample. otherwise the whole dataset is re-processed        
 
         for i, article_content in enumerate(article_contents):
