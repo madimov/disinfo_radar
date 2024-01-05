@@ -16,3 +16,7 @@ Here is an example of how to set up and run the pipeline:
 4. `python DisinfoPipeline.py`
 
 For now, output data is stored locally in the `Output` directory and a subset is uploaded to Google Drive to feed into Infogram visualizations.
+
+To see or edit file locations or pipeline settings, use the `config.ini` file.
+
+For a quick test run of the pipeline with a small data sample, set `test_run_small_sample` to true in `config.ini`.
