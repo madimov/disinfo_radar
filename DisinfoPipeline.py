@@ -221,7 +221,7 @@ class DisinfoPipeline:
 
         #filter data
         df_data = self.df_tech_disinfo_analysis
-        df_data_filtered = df_data[(df_data["span_score_mean"]>0.96) & (df_data["counts"]>20)]
+        df_data_filtered = df_data[(df_data["span_score_mean"]>0.96) & (df_data["counts"]>20)].head(20) # up to 20 largest clusters
         df_data_filtered = df_data_filtered.reset_index()
         print(df_data_filtered.columns)
 
