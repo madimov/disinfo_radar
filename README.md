@@ -16,9 +16,9 @@ Here is an example of how to set up and run the pipeline:
 4. `python DisinfoPipeline.py`
 
 A couple of NLTK packages are also needed, which can be installed from a Python shell like this:
-`import nltk`
-`nltk.download('punkt')`
-`nltk.download('stopwords')`
+1. `import nltk`
+2. `nltk.download('punkt')`
+3. `nltk.download('stopwords')`
 
 For now, output data is stored locally in the `Output` directory and a subset is uploaded to Google Drive to feed into Infogram visualizations.
 
